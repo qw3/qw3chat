@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Dia:</b>
+  <%= @chat_session.dia %>
+</p>
+
+<p>
+  <b>Entrada:</b>
+  <%= @chat_session.entrada %>
+</p>
+
+<p>
+  <b>Saida:</b>
+  <%= @chat_session.saida %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @chat_session.usuario %>
+</p>
+
+
+<%= link_to 'Edit', edit_chat_session_path(@chat_session) %> |
+<%= link_to 'Back', chat_sessions_path %>

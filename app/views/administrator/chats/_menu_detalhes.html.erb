@@ -1,0 +1,17 @@
+<li>
+	<%= link_to administrator_chats_path(:status => Chat::ESPERANDO), :class => "em-espera" do %>
+		<span>Clientes em espera</span>
+	<% end %>
+</li>
+
+<li>
+	<%= link_to administrator_chats_path(:status => Chat::EM_ATENDIMENTO), :class => "em-atendimento" do %>
+		<span>Atendimentos em andamento</span>
+	<% end %>
+</li>
+
+<li>
+	<%= link_to administrator_chats_path(:status => Chat::FINALIZADO), :class => "finalizados" do %>
+		<span>Atendimentos encerrados</span>
+	<% end %>
+</li>

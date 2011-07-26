@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+	Um novo cliente enviou uma solicitação enquanto o atendimento estava offline.<br />
+	Segue a mensagem:
+	</p>
+	<p style="padding-left: 10px">
+	  <b>Nome:</b> <%= @cliente.nome%>
+      <b>E-mail:</b> <%= @cliente.email %>
+	  <b>Telefone:</b>  <%= @cliente.telefone %>
+    </p>
+	<p style="padding-left: 10px"> Mensagem: <br />
+		<em><%= @mensagem %></em>
+	</p>
+	<p style="font-size:9px"><b>Obs.:</b> Essa mensagem foi enviada automaticamente pelo sistema de atendimento online.</p>
+  </body>
+</html>

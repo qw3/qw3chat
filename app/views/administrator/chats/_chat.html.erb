@@ -1,0 +1,39 @@
+<div class="chat">
+	<div class="esquerda">
+		<div class="cliente"><%= chat.chat_cliente.nome %></div>
+		<div class="data"><%= chat.inicio.strftime "%d/%m/%Y %H:%M:%S" %></div>
+		<div class="mensagem"><%= chat.primeira_mensagem %></div>
+	</div>
+	<div class="direita">
+		<div class="status">
+			Status:
+			<span>
+				<%= chat.status_to_s %>
+			</span>
+		</div>
+		<ul class="botoes">
+			<li class="atender">
+				<% if chat.esperando? %>
+					<%= link_to "/administrator/chats/#{chat.id}/atender", :target => '_blank' do %>
+						<span>Atender</span>
+					<% end %>
+				<% end %>
+			</li>
+			<li class="finalizar">
+				<% if (!chat.finalizado? and chat.atendente_id == current_administrator_administrador.id) or (chat.esperando?) %>
+					<%= link_to "/administrator/chats/#{chat.id}/finalizar" do %>
+						<span>Encerrar</span>
+					<% end %>
+				<% end %>
+			</li>
+			<li class="visualizar">
+				<% if chat.finalizado? %>
+					<%= link_to "/administrator/chats/#{chat.id}/visualizar" do %>
+						<span>Visualizar</span>
+					<% end %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>

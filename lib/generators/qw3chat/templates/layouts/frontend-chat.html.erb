@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+	  <title><%= ConfiguracaoAtendimento.nome_empresa %> - Em atendimento</title>
+	  <%= stylesheet_link_tag 'qw3chat/application','qw3chat/template', 'qw3chat/chat' %>
+	  <%= javascript_include_tag 'qw3chat/jquery', 'qw3chat/jquery-ui' %>
+		<script>
+			// Retira o conflito da jQuery
+			var $jq = jQuery.noConflict();
+		</script>
+	  <%= javascript_include_tag 'qw3chat/jquery.ajaxrailscorrection.js' %>
+	  <%= javascript_include_tag 'qw3chat/chat'%>
+	  <%= csrf_meta_tag %>	
+	</head>
+
+	<body>
+
+		<div class="component">
+			<%= yield %>
+		</div>
+		
+	</body>
+</html>

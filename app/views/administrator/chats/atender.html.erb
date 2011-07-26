@@ -1,0 +1,27 @@
+<div class="page_header">
+	<h1>Atendimento online - Cliente: <b><%= @chat.cliente.nome %></b></h1>
+</div>
+
+<div class="inside">
+
+	<div id="chat-wrap"><div id="chat-area"></div></div>
+
+	<% form_tag '/administrator/mensagens', :remote => true, :id => 'send-message-area' do %>
+	    <%= text_area 'mensagem', 'texto', :maxlength => 100 %>
+	<% end %>
+	
+	<div class="finalizar">
+		<%= link_to "/administrator/chats/#{@chat.id}/finalizar", :class => 'button' do %>
+			<span>Encerrar este atendimento</span>
+		<% end %>
+	</div>
+	
+</div>
+
+<input type="hidden" id="nome" value="<%= current_administrator_administrador.nome %>" />
+<input type="hidden" id="chat_id" value="<%= @chat.id %>" />
+<input type="hidden" id="client" value="0" />
+<input type="hidden" id="token" value="2" />
+
+<%= javascript_include_tag 'qw3chat/chat.start.js' %>
+<%= javascript_include_tag 'qw3chat/chat.client.close.js' %>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title><%= ConfiguracaoAtendimento.nome_empresa %> - Atendimento online</title>
+	  <%= stylesheet_link_tag 'qw3chat/frontend', 'qw3chat/notice' %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= javascript_include_tag 'qw3chat/livevalidation', 'qw3chat/mascara' %>
+	  <%= javascript_include_tag 'qw3chat/notice' %>
+	  <%= csrf_meta_tag %>	
+	</head>
+	
+	<body>
+		
+		<% if !notice.nil? %>
+			<div id="notice">
+				<%= notice %>
+			</div>
+		<% end %>
+		
+		<div class="component">
+			<%= yield %>
+		</div>
+	</body>
+</html>

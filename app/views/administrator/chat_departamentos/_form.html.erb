@@ -1,0 +1,35 @@
+<%= form_for([:administrator,@chat_departamento]) do |f| %>
+  <% if @chat_departamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chat_departamento.errors.count, "erro") %>:</h2>
+
+      <ul>
+      <% @chat_departamento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="esquerda">
+	  <div class="field">
+	    <%= f.label :nome %><br />
+	    <%= f.text_field :nome %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.text_field :email %>
+	  </div>
+  </div>
+  <div class="direita">
+	  <div class="field">
+	    <%= f.label :alias %><br />
+	    <%= f.text_field :alias %>
+	  </div>
+  </div>
+  <div class="clear"></div>
+  <div class="actions">
+	<%= link_to '< Voltar', administrator_chat_departamentos_path, :class => :button %>
+    <%= f.submit :class => :button, :value => 'Salvar' %>
+  </div>
+<% end %>

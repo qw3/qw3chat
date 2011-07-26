@@ -1,0 +1,284 @@
+body {
+	background: none repeat scroll 0 0 #F3F1EC !important;
+	height:100%;
+	font-family	Helvetica,Arial,FreeSans,sans-serif;
+	margin:0; padding:0;
+}
+
+a {
+	text-decoration:none;
+}
+
+#background {
+	width: 100%;
+}
+
+#header {
+	height: 115px;
+	background: url(../../images/qw3chat/css/header_bg.png);
+}
+
+#leftbar {
+	width: 7%;
+	height: 100%;
+	float: left;
+	background: url(../../images/qw3chat/leftbar-bg.png);
+}
+
+ul.menu {
+	margin: 0;
+	padding: 0;
+}
+
+#leftbar ul.menu li a {
+	height: 95px;
+	display:block;
+	padding: 5px;
+}
+
+#leftbar ul.menu li:hover {	
+	background: #444;
+	opacity: 0.9;
+}
+
+#leftbar ul.menu li a span {
+	position:relative;
+	top:65px;
+	font-family: "Lucida Grande";
+	font-weight: normal;
+	font-size: 11px;
+	color: #e2e2e2;
+}
+
+#leftbar ul.menu li a.chat-leftbar {
+	background: url(../../images/qw3chat/atendimento/comments.png) no-repeat scroll center top transparent;
+}
+
+#leftbar ul.menu li a.configuracao-atendimento {
+	background: url(../../images/qw3chat/configuracoes/process.png) no-repeat scroll center top transparent;
+}
+
+#menu-detalhes {
+	height: 40px;
+	background: url(../../images/qw3chat/menu-detalhes-bg.png);
+}
+
+#menu-detalhes ul.menu  li {
+	display: inline-block;
+	padding: 10px 10px;
+}
+
+#menu-detalhes ul.menu  li a {
+	cursor:pointer;
+	color: #eee;
+	font-family: "Lucida Grande";
+	font-weight: normal;
+	font-size: 17px;
+}
+
+#menu-detalhes ul.menu  li:hover {
+	opacity: 0.9;
+	background: #444;
+}
+
+#menu-detalhes ul.menu  li a span {
+	margin-left:30px;
+}
+
+#menu-detalhes ul.menu  li a.em-espera {
+	background: url(../../images/qw3chat/atendimento/add.png) no-repeat scroll left top transparent;
+}
+
+#menu-detalhes ul.menu  li a.finalizados {
+	background: url(../../images/qw3chat/atendimento/delete.png) no-repeat scroll left top transparent;
+}
+
+#menu-detalhes ul.menu  li a.em-atendimento {
+	background: url(../../images/qw3chat/atendimento/accept.png) no-repeat scroll left top transparent;
+}
+
+#menu-detalhes ul.menu  li a.editar-conf {
+	background: url(../../images/qw3chat/configuracoes/editar-conf.png) no-repeat scroll left top transparent;
+}
+
+#menu-detalhes ul.menu  li a.departamentos {
+	background: url(../../images/qw3chat/atendimento/database.png) no-repeat scroll left top transparent;
+}
+
+#menu-detalhes ul.menu  li a.novo-departamento {
+	background: url(../../images/qw3chat/configuracoes/database_add.png) no-repeat scroll left top transparent;
+}
+
+div.component {
+	float:left;
+	min-height: 500px;
+	background-color: white;
+	width: 93%;
+}
+
+.clear {
+	clear:both;
+}
+
+a.cliente, a.encerrar {
+	padding: 5px;
+	font-size: 10pt;
+}
+
+a.cliente {
+	background-color: #a8ca92;
+}
+a.cliente:hover {
+	background-color: #bfdaae;
+}
+
+a.encerrar {
+	background-color: #c2a6a6;
+}
+a.encerrar:hover {
+	background-color: #d5b7b7;
+}
+
+div.atrasada {
+	background-color: #ddacac;
+	border-color: red;
+	border-width: 2px;
+}
+
+div#welcome {
+    color: #f2f2f2;
+    float: right;
+    margin: 10px;
+    text-align: right;
+    width: 300px;
+}
+
+div#welcome a {
+	color: #f2f2f2;
+}
+
+div#welcome a:hover {
+	color: #cccccc;
+}
+
+div#welcome .welcome, div#welcome .logout {
+	display:inline;
+	margin-left: 5px;
+	text-border: 1px 2px 1px #000000;
+	-moz-text-border: 1px 2px 1px #000000;
+	-webkit-text-border: 1px 2px 1px #000000;
+}
+
+div.buttonmargin {
+	margin: 30px 0;
+}
+
+div.ponto input[type="submit"] {
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	margin: 10px 0;
+	padding: 8px;
+	color: #fff;
+	background: #000;
+	border: 1px solid #ccc;
+	font-size: 13px;
+	font-weight: bold;
+	cursor:pointer;
+	text-transform:uppercase;
+}
+
+div.ponto .aberto input[type="submit"] {
+	background: green;
+}
+
+div.ponto .fechado input[type="submit"] {
+	background: red;
+}
+
+div.chat {
+	box-shadow: 0 0 3px #CCC;
+	-moz-box-shadow: 0 0 3px #CCC;	
+	-webkit-box-shadow: 0 0 3px #CCC;	
+
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+
+	border: 1px solid #D7D7D7;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+div.chat div.cliente {
+	font-size: 18px;
+	float:left;
+	width: 70%;
+}
+
+div.chat div.data {
+	width: 30%;
+	float:left;
+	font-size: 11px;
+}
+
+div.chat div.mensagem {
+	float:left;
+	width: 100%;
+	margin: 10px;
+	font-style: italic;
+}
+
+div.chat div.status {
+	float:left;
+	width: 25%;
+	font-size: 11px;
+	font-family:"Lucida Grande";
+}
+
+div.chat div.status span {
+	font-weight: bold;
+	font-size: 14px;
+	display:block;
+}
+
+div.chat ul.botoes {
+	margin:0;padding:0;
+	float:right;
+	width: 75%;
+	text-align:right;
+}
+
+div.chat ul.botoes li {
+	display:inline-block;
+	margin: 0 20px;
+	height: 60px;
+	float:right;
+	font-family:"Lucida Grande";
+}
+
+div.chat ul.botoes li a {
+	display:inline-block;
+	height: 60px;
+}
+
+div.chat ul.botoes li a span {
+	position:relative;
+	top: 48px;
+}
+
+div.chat ul.botoes li.atender a {
+	background:url(../images/atendimento/atender.png) no-repeat scroll center top;
+}
+
+div.chat ul.botoes li.finalizar a {
+	background:url(../images/atendimento/finalizar.png) no-repeat scroll center top;
+}
+
+div.chat ul.botoes li.visualizar a {
+	background:url(../images/atendimento/visualizar.png) no-repeat scroll center top;
+}
+
+div.historico-mensagens span {
+	font-weight: bold;
+}

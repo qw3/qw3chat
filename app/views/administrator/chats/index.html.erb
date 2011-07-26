@@ -1,0 +1,19 @@
+<div class="page_header">
+	<h1><%= nome_chat_index params[:status] %></h1>
+</div>
+
+<div class="inside">
+	
+	<%= form_tag( administrator_chats_path(:status => Chat::ESPERANDO), :remote => true, :method => :get, :id => 'chats-form' ) do %>
+		<div class="invisible">
+			<%= submit_tag 'Buscar', :id => 'chats-form-submit' %>
+		</div>
+	<% end %>
+	
+	<div id="table-index" class="index">
+		<%= render 'chats' %>
+	</div>
+	
+	<input type="hidden" id="last_chat" value="<%= @chats.sort {|a,b| b.id <=> a.id}.first.id unless @chats.count == 0 %>" />
+
+</div>

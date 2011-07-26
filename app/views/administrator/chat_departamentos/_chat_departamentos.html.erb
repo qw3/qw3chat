@@ -1,0 +1,21 @@
+<table class="list">
+  <tr>
+    <th>Nome</th>
+	<th>Email</th>
+    <th>Alias</th>
+    <th>Remover?</th>
+  </tr>
+
+<% @chat_departamentos.each do |chat_departamento| %>
+  <tr>
+    <td><%= link_to chat_departamento.nome, edit_administrator_chat_departamento_path(chat_departamento) %></td>
+	<td><%= chat_departamento.email %></td>
+    <td><%= chat_departamento.alias %></td>
+    <td align="center"><%= link_to image_tag('atendimento/delete.png'), [:administrator,chat_departamento], :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div id="paginacao">
+  <%= will_paginate_with_i18n @carros %>
+</div>

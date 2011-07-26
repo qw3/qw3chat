@@ -1,0 +1,82 @@
+h2              {
+	color: #fa9f00;
+	font: 30px Helvetica, Sans-Serif;
+	margin: 0 0 10px 0;
+}
+#page-wrap      {
+	width: 500px;
+	margin: 30px auto;
+	position: relative;
+}
+
+#chat-wrap      {
+	border: 1px solid #eee;
+	margin: 0 0 15px 0;
+}
+#chat-area      {
+	height: 300px;
+	overflow: auto;
+   	border: 1px solid #c2c2c2;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0 0 3px #CCC;
+	-webkit-box-shadow: 0 0 3px #CCC;
+	-moz-box-shadow: 0 0 3px #CCC;
+	padding: 20px;
+	background: white;
+}
+#chat-area span {
+ 	color: white;
+	background: #333;
+	padding: 4px 8px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 8px;
+	margin: 0 5px 0 0;
+}
+#chat-area p    {
+ 	padding: 8px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+#send-message-area p {
+ 	float: left;
+	color: white;
+	padding-top: 27px;
+	font-size: 14px;
+}
+#mensagem_texto {
+	float:right;
+
+	padding: 10px 10px;
+	width: 400px;
+	height: 100px;
+	
+   	border: 1px solid #c2c2c2;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0 0 3px #CCC;
+	-webkit-box-shadow: 0 0 3px #CCC;
+	-moz-box-shadow: 0 0 3px #CCC;
+	
+	font-family: "Lucida Grande";
+	font-size: 16px;
+}
+
+div.finalizar {
+	float:left;
+	padding-top: 30px;
+}
+
+div.finalizar a {
+	background: url(../../images/qw3chat/atendimento/delete.png) no-repeat scroll 5px 10px #EAE9E9;
+}
+
+div.finalizar a:hover {
+	background: url(../../images/qw3chat/atendimento/delete.png) no-repeat scroll 5px 10px #e0e0e0;
+}
+
+div.finalizar a span {
+	margin-left: 20px;
+}

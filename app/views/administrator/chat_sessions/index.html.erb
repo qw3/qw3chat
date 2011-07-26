@@ -1,0 +1,29 @@
+<h1>Listing chat_sessions</h1>
+
+<table>
+  <tr>
+    <th>Dia</th>
+    <th>Entrada</th>
+    <th>Saida</th>
+    <th>Usuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chat_sessions.each do |chat_session| %>
+  <tr>
+    <td><%= chat_session.dia %></td>
+    <td><%= chat_session.entrada %></td>
+    <td><%= chat_session.saida %></td>
+    <td><%= chat_session.usuario %></td>
+    <td><%= link_to 'Show', chat_session %></td>
+    <td><%= link_to 'Edit', edit_chat_session_path(chat_session) %></td>
+    <td><%= link_to 'Destroy', chat_session, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chat session', new_chat_session_path %>

@@ -1,0 +1,13 @@
+<div class="chats">
+	<% if @chats.count.zero? %>
+		Nenhum atendimento nessa lista.
+	<% else %>
+		<% @chats.each do |chat| %>
+		  <%= render chat %>
+		<% end %>
+	<% end %>
+</div>
+
+<div id="paginacao">
+  <%= will_paginate_with_i18n @chats %>
+</div>

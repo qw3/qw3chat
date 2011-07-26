@@ -1,0 +1,19 @@
+<div class="page_header">
+	<h1>Atendimento online</h1>
+</div>
+
+<div class="inside">
+	<div id="chat-wrap"><div id="chat-area"></div></div>
+
+	<%= form_tag '/mensagens', :id => 'send-message-area' do %>
+	    <%= text_area 'mensagem', 'texto', :maxlength => 100 %>
+	<% end %>
+</div>
+
+<input type="hidden" id="nome" value="<%= @chat.chat_cliente.nome %>" />
+<input type="hidden" id="chat_id" value="<%= @chat.id %>" />
+<input type="hidden" id="client" value="1" />
+<input type="hidden" id="token" value="1" />
+
+<%= javascript_include_tag 'qw3chat/chat.start.js' %>
+<%= javascript_include_tag 'qw3chat/chat.client.close.js' %>

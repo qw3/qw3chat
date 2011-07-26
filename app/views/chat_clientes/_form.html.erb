@@ -1,0 +1,58 @@
+<%= form_for(@cliente) do |f| %>
+
+  <% if ChatDepartamento.count > 0 %>
+	  <div class="field">
+		<%= label_tag 'departamento_id', 'Departamento: ' %>
+	  	<%= select_tag "departamento_id", 
+	  			options_for_select(ChatDepartamento.all.to_a.sort { |a, b| a.nome <=> b.nome}.collect {|e| [ e.nome, e.id ] }) %>
+	  </div>
+  <% end %>
+
+  <div class="field">
+	<% nome_padrao = 'Nome' %>
+    <%= f.text_field :nome, :value => nome_padrao, 
+		:onclick => "if(this.value == '#{nome_padrao}') this.value=''", 
+		:onblur => "if(this.value == '') this.value='#{nome_padrao}'" %>
+  </div>
+  <div class="field">
+	<% email_padrao = 'E-mail' %>
+    <%= f.text_field :email, :value => email_padrao, 
+		:onclick => "if(this.value == '#{email_padrao}') this.value=''", 
+		:onblur => "if(this.value == '') this.value='#{email_padrao}'" %>
+  </div>
+  <div class="field">
+	<% telefone_padrao = '(xx) xxxx-xxxx' %>
+    <%= f.text_field :telefone, :value => telefone_padrao, 
+		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 14, :size => 30,
+		:onclick => "if(this.value == '#{telefone_padrao}') this.value=''", 
+		:onblur => "if(this.value == '') this.value='#{telefone_padrao}'"
+		 %>
+  </div>
+  <div class="field">
+	<% mensagem_padrao = 'Digite sua mensagem' %>
+    <%= text_area_tag :mensagem, mensagem_padrao,
+		:onclick => "if(this.value == '#{mensagem_padrao}') this.value=''", 
+		:onblur => "if(this.value == '') this.value='#{mensagem_padrao}'", :size => "40x10" %>
+  </div>
+  <div class="actions">
+	<% label_submit = (ChatSession.atendimento_online?) ? 'Iniciar conversa' : 'Enviar mensagem' %>
+    <%= f.submit :class => :button, :value => label_submit %>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+var vNome = new LiveValidation('chat_cliente_nome', {onlyOnBlur:true, validMessage:" "});
+vNome.add( Validate.Presence, { failureMessage: "Por favor, digite seu nome" } );
+var vEmail = new LiveValidation('chat_cliente_email', {onlyOnBlur:true, validMessage:" "});
+vEmail.add( Validate.Presence, { failureMessage: "Por favor, digite seu email" } );
+vEmail.add( Validate.Email, { failureMessage: "Formato de email incorreto" } );
+var vMensagem = new LiveValidation('mensagem', {onlyOnSubmit:true, validMessage:" "});
+vMensagem.add( Validate.Presence, { failureMessage: "Por favor, preencha a mensagem" });
+
+<% if ChatDepartamento.count > 0 %>
+	var vDepartamento = new LiveValidation('departamento_id', {onlyOnBlur:true, validMessage:" "});
+	vDepartamento.add( Validate.Presence);
+<% end %>
+
+</script>

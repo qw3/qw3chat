@@ -1,0 +1,103 @@
+html {
+	height: 100%;
+}
+body {
+	font-family: "Lucida Grande";
+	margin:0;padding:0;
+	height:100%;
+	background:#EEE;
+	background:-moz-linear-gradient(center top , #FFFFFF 0%, #CCCCCC 100%) repeat scroll 0 0 #eee;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#CCC)) repeat scroll 0 0 #eee;	
+}
+
+div.login {
+  width: 100%;
+}
+
+div.login_img {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+div.login_inside {
+	background: url(../../images/qw3chat/logo.png) no-repeat scroll center 80px transparent;
+    padding-top: 200px;
+    width: 100%;
+}
+
+div#notice {
+   background: none repeat scroll 0 0 #e2e2e2;
+   border-bottom: 3px solid #c2c2c2;
+   border-top: 3px solid #c2c2c2;
+   color: #767676;
+   margin: 20px auto;
+   padding: 20px 0;
+   text-align:center;
+   width: 100%;
+}
+
+div.login_texto {
+  text-align: center;
+  margin: 10px;
+  color: #666666;
+}
+
+div.login_form {
+  text-align:center;
+}
+div.field {
+	margin: 10px 0;
+}
+
+
+div.field input {
+	height: 20px;
+	width: 300px;
+	font-size: 14px;
+	color: #222;
+}
+
+
+div.field label {
+	font-family: "Lucida Grande";
+	font-size: 16px;
+	color: #5b6d80;
+	width: 80px;
+	display:inline-block;
+	text-align: right;
+	margin-right: 20px;
+}
+
+div.field select {
+	color: #5b6d80;
+	width: 200px;
+}
+
+div.actions {
+	padding-top: 15px;
+}
+
+.button {
+	cursor:pointer;
+	
+	background: url(../../images/qw3chat/css/button_submit.gif) no-repeat scroll right 0 padding-box #8BAD68;
+	color: #3d4731;
+	
+	border: 1px solid #888888;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(255, 255, 255, 0.7) inset;
+
+	width: 250px;
+	height: 40px;
+	text-align:center;
+	
+	font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+
+}
+
+.button:hover {
+	opacity: 0.9;
+}

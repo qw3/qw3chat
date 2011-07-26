@@ -1,0 +1,21 @@
+<div class="logo">
+	<%= image_tag ConfiguracaoAtendimento.logo %>
+</div>
+
+<div class="page_header">
+	<h1>Atendimento online</h1>
+</div>
+
+<div class="inside">
+	
+	<div class="topo">
+		<div class="texto-descritivo">
+			<%= (ChatSession.atendimento_online?) ? ConfiguracaoAtendimento.texto_online : ConfiguracaoAtendimento.texto_offline %>
+		</div>
+	
+		<%= render '/administrator/chat_sessions/status' %>
+		<div class="clear"></div>
+	</div>
+	
+	<%= render 'form' %>
+</div>
