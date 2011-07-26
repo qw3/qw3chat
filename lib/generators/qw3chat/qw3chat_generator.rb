@@ -80,46 +80,48 @@ class Qw3chatGenerator < Rails::Generators::Base
   def create_routes
        
     route("namespace 'administrator' do
-    
-      resources :chats
-      controller :chats do
-        get '/novas_notificacoes'       => 'chats#novas_notificacoes'
-        get '/chats/:id/atender'        => 'chats#atender'
-        get '/chats/:id/finalizar'      => 'chats#finalizar'
-        get '/chats/:id/visualizar'     => 'chats#visualizar'
-      end
-      
-      resources :chat_departamentos
-      
-      resources :chat_sessions
-      controller :chat_sessions do
-        post 'chat_sessions/iniciar'       => 'chat_sessions#iniciar'
-        post 'chat_sessions/finalizar'     => 'chat_sessions#finalizar'
-      end
-      
-      controller :configuracao_atendimento do
-        get 'configuracao_atendimento/editar'   => 'configuracao_atendimento#editar'
-        post 'configuracao_atendimento/salvar'  => 'configuracao_atendimento#salvar'
-      end
-  
-      controller :chat_mensagens do
-        post '/atualiza_mensagens'  => 'chat_mensagens#atualiza_mensagens'
-        post '/nova-mensagem'       => 'chat_mensagens#create'
-      end
-    
-    end")
+
+          resources :chats
+          controller :chats do
+            get '/novas_notificacoes'       => 'chats#novas_notificacoes'
+            get '/chats/:id/atender'        => 'chats#atender'
+            get '/chats/:id/finalizar'      => 'chats#finalizar'
+            get '/chats/:id/visualizar'     => 'chats#visualizar'
+          end
+
+          resources :chat_departamentos
+
+          resources :chat_sessions
+          controller :chat_sessions do
+            post 'chat_sessions/iniciar'       => 'chat_sessions#iniciar'
+            post 'chat_sessions/finalizar'     => 'chat_sessions#finalizar'
+          end
+
+          controller :configuracao_atendimento do
+            get 'configuracao_atendimento/editar'   => 'configuracao_atendimento#editar'
+            post 'configuracao_atendimento/salvar'  => 'configuracao_atendimento#salvar'
+          end
+
+          controller :chat_mensagens do
+            post '/atualiza_mensagens'  => 'chat_mensagens#atualiza_mensagens'
+            post '/nova-mensagem'       => 'chat_mensagens#create'
+          end
+
+        end")
   
     route("resources :chats
-    controller :chats do
-      post 'fechar_chat'  => 'chats#fechar'
-    end
-    
-    resources :chat_clientes
-    
-    controller :chat_mensagens do
-      post 'atualiza_mensagens' => 'chat_mensagens#atualiza_mensagens'
-      post 'mensagens'          => :create
-    end")
+            controller :chats do
+              post 'fechar_chat'  => 'chats#fechar'
+            end
+
+          resources :chat_clientes
+
+          controller :chat_mensagens do
+            post 'atualiza_mensagens' => 'chat_mensagens#atualiza_mensagens'
+            post 'mensagens'          => :create
+          end
+
+          root :to => 'chat_clientes#new'")
 
   end
 
