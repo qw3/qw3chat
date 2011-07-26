@@ -25,6 +25,7 @@ class Qw3chatGenerator < Rails::Generators::Base
     migration_template 'migrations/sessions.rb', 'db/migrate/create_sessions.rb'
     migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
     
+    rake("db:create")
     rake("db:migrate")
   end
   
