@@ -268,15 +268,15 @@ div.chat ul.botoes li a span {
 }
 
 div.chat ul.botoes li.atender a {
-	background:url(../images/atendimento/atender.png) no-repeat scroll center top;
+	background:url(../../images/qw3chat/atendimento/atender.png) no-repeat scroll center top;
 }
 
 div.chat ul.botoes li.finalizar a {
-	background:url(../images/atendimento/finalizar.png) no-repeat scroll center top;
+	background:url(../../images/qw3chat/atendimento/finalizar.png) no-repeat scroll center top;
 }
 
 div.chat ul.botoes li.visualizar a {
-	background:url(../images/atendimento/visualizar.png) no-repeat scroll center top;
+	background:url(../../images/qw3chat/atendimento/visualizar.png) no-repeat scroll center top;
 }
 
 div.historico-mensagens span {

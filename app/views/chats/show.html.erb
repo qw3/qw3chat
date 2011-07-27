@@ -8,6 +8,11 @@
 	<%= form_tag '/mensagens', :id => 'send-message-area' do %>
 	    <%= text_area 'mensagem', 'texto', :maxlength => 100 %>
 	<% end %>
+	
+	<div class="descricao-chat">
+		Para enviar uma mensagem, digite o texto ao lado e aperte <b>ENTER</b>.
+	</div>
+	
 </div>
 
 <input type="hidden" id="nome" value="<%= @chat.chat_cliente.nome %>" />

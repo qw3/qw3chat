@@ -10,9 +10,13 @@
 	    <%= text_area 'mensagem', 'texto', :maxlength => 100 %>
 	<% end %>
 	
+	<div class="descricao-chat">
+		Para enviar uma mensagem, digite o texto ao lado e aperte <b>ENTER</b>.
+	</div>
+	
 	<div class="finalizar">
 		<%= link_to "/administrator/chats/#{@chat.id}/finalizar", :class => 'button' do %>
-			<span>Encerrar este atendimento</span>
+			<span>Encerrar atendimento</span>
 		<% end %>
 	</div>
 	
