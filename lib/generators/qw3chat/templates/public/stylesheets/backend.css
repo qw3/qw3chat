@@ -146,20 +146,12 @@ div.atrasada {
 }
 
 div#welcome {
-    color: #f2f2f2;
     float: right;
     margin: 10px;
     text-align: right;
     width: 300px;
 }
 
-div#welcome a {
-	color: #f2f2f2;
-}
-
-div#welcome a:hover {
-	color: #cccccc;
-}
 
 div#welcome .welcome, div#welcome .logout {
 	display:inline;
