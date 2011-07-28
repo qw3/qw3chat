@@ -86,7 +86,7 @@ class Administrator::ChatSessionsController < Administrator::AdminController
   
   def iniciar
     @sessao = ChatSession.new
-    @sessao.usuario_id = current_administrator_administrador
+    @sessao.usuario_id = current_administrator_administrador.id
     @sessao.dia = Date.today
     @sessao.entrada = Time.now.strftime '%H:%M:%S'
     
