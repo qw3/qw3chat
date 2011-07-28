@@ -1,0 +1,9 @@
+<div class="welcome">
+  Bem-vindo, <b><%= current_administrator_administrador.nome %></b>.
+</div>
+<div class="logout">
+  <%= link_to '(Logout)', '/administrator/administradores/sign_out', :method => :delete %>
+</div>
+<div class="alterar_senha">
+  <%= link_to 'Alterar Senha', edit_administrator_administrador_password_path( current_administrator_administrador ) %>
+</div>
