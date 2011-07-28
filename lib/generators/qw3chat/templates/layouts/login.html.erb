@@ -3,9 +3,18 @@
 	<head>
 	  <title><%= ConfiguracaoAtendimento.nome_empresa %></title>
 	  <%= stylesheet_link_tag 'qw3chat/login' %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= javascript_include_tag 'qw3chat/notice' %>
 	  <%= csrf_meta_tag %>	
 	</head>
 	<body class="loginlayout">
+		
+		<% if !notice.nil? %>
+			<div id="notice">
+				<%= notice %>
+			</div>
+		<% end %>
+		
   		<%= yield %>
 	</body>
 </html>
