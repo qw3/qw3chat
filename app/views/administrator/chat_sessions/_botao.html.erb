@@ -4,8 +4,7 @@
 		<div class="aberto">
 			<%= button_to 'Habilitar atendimento', '/administrator/chat_sessions/iniciar' %>
 		</div>
-	<% end %>
-	<% if ChatSession.sessao_aberta current_administrator_administrador.id %>
+	<% else %>
 		<% sessao_aberta = 1 %>
 		<div class="fechado">
 			<%= button_to 'Desabilitar atendimento', '/administrator/chat_sessions/finalizar' %>
