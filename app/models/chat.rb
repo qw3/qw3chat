@@ -61,7 +61,9 @@ class Chat < ActiveRecord::Base
   
   def recuperar_historico
     chat_path = File.join("chats", "#{self.id}.txt")
-    return '' if !File.exists?(chat_path)
+    if !File.exists?(chat_path)
+      self.finalizar
+    end
     
     file = File.open(chat_path, "rb")
     historico = file.read

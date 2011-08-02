@@ -20,6 +20,7 @@ class ChatMensagensController < FrontendController
   # POST /mensagens.xml
   def create
     @mensagem = ChatMensagem.new(params[:mensagem])
+    @mensagem.texto = params[:mensagem][:texto].gsub(/\n/, ' ') 
     @mensagem.data = Time.now
     @mensagem.save
     

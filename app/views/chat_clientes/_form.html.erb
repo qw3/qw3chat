@@ -11,13 +11,15 @@
   <div class="field">
 	<% nome_padrao = 'Nome' %>
     <%= f.text_field :nome, :value => nome_padrao, 
-		:onclick => "if(this.value == '#{nome_padrao}') this.value=''", 
+		:onclick => "if(this.value == '#{nome_padrao}') this.value=''",
+		:onfocus => "if(this.value == '#{nome_padrao}') this.value=''", 
 		:onblur => "if(this.value == '') this.value='#{nome_padrao}'" %>
   </div>
   <div class="field">
 	<% email_padrao = 'E-mail' %>
     <%= f.text_field :email, :value => email_padrao, 
-		:onclick => "if(this.value == '#{email_padrao}') this.value=''", 
+		:onclick => "if(this.value == '#{email_padrao}') this.value=''",
+		:onfocus => "if(this.value == '#{email_padrao}') this.value=''", 
 		:onblur => "if(this.value == '') this.value='#{email_padrao}'" %>
   </div>
   <div class="field">
@@ -25,13 +27,15 @@
     <%= f.text_field :telefone, :value => telefone_padrao, 
 		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 14, :size => 30,
 		:onclick => "if(this.value == '#{telefone_padrao}') this.value=''", 
+		:onfocus => "if(this.value == '#{telefone_padrao}') this.value=''", 
 		:onblur => "if(this.value == '') this.value='#{telefone_padrao}'"
 		 %>
   </div>
   <div class="field">
 	<% mensagem_padrao = 'Digite sua mensagem' %>
     <%= text_area_tag :mensagem, mensagem_padrao,
-		:onclick => "if(this.value == '#{mensagem_padrao}') this.value=''", 
+		:onclick => "if(this.value == '#{mensagem_padrao}') this.value=''",
+		:onfocus => "if(this.value == '#{mensagem_padrao}') this.value=''",  
 		:onblur => "if(this.value == '') this.value='#{mensagem_padrao}'", :size => "40x10" %>
   </div>
   <div class="actions">
@@ -42,17 +46,24 @@
 <% end %>
 
 <script type="text/javascript">
-var vNome = new LiveValidation('chat_cliente_nome', {onlyOnBlur:true, validMessage:" "});
-vNome.add( Validate.Presence, { failureMessage: "Por favor, digite seu nome" } );
-var vEmail = new LiveValidation('chat_cliente_email', {onlyOnBlur:true, validMessage:" "});
-vEmail.add( Validate.Presence, { failureMessage: "Por favor, digite seu email" } );
-vEmail.add( Validate.Email, { failureMessage: "Formato de email incorreto" } );
-var vMensagem = new LiveValidation('mensagem', {onlyOnSubmit:true, validMessage:" "});
-vMensagem.add( Validate.Presence, { failureMessage: "Por favor, preencha a mensagem" });
+	
+	var vNome = new LiveValidation('chat_cliente_nome', {onlyOnBlur:true, validMessage:" "});
+	vNome.add( Validate.Presence, { failureMessage: "Por favor, digite seu nome" } );
+	vNome.add( Validate.Exclusion, { within: [ 'Nome' , 'nome', 'eu' ], failureMessage: "Por favor, digite seu nome correto" } );
+	
+	var vEmail = new LiveValidation('chat_cliente_email', {onlyOnBlur:true, validMessage:" "});
+	vEmail.add( Validate.Presence, { failureMessage: "Por favor, digite seu email" } );
+	vEmail.add( Validate.Email, { failureMessage: "Formato de email incorreto" } );
+	
+	var vMensagem = new LiveValidation('mensagem', {onlyOnSubmit:true, validMessage:" "});
+	vMensagem.add( Validate.Presence, { failureMessage: "Por favor, preencha a mensagem" });
+	
+	var vTelefone = new LiveValidation('telefone', {onlyOnSubmit:true, validMessage:" "});
+	vTelefone.add( Validate.Presence, { failureMessage: "Por favor, digite seu telefone corretamente" });
 
-<% if ChatDepartamento.count > 0 %>
-	var vDepartamento = new LiveValidation('departamento_id', {onlyOnBlur:true, validMessage:" "});
-	vDepartamento.add( Validate.Presence);
-<% end %>
+	<% if ChatDepartamento.count > 0 %>
+		var vDepartamento = new LiveValidation('departamento_id', {onlyOnBlur:true, validMessage:" "});
+		vDepartamento.add( Validate.Presence);
+	<% end %>
 
 </script>

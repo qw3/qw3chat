@@ -208,18 +208,6 @@ div.chat div.cliente {
 	width: 70%;
 }
 
-div.chat div.cliente_email {
-	font-size: 14px;
-	float:left;
-	width: 70%;
-}
-
-div.chat div.cliente_telefone {
-	font-size: 14px;
-	float:left;
-	width: 30%;
-}
-
 div.chat div.data {
 	width: 30%;
 	float:left;

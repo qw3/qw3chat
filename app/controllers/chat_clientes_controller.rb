@@ -24,6 +24,7 @@ class ChatClientesController < FrontendController
       end
       # salva a primeira mensagem
       @mensagem = ChatMensagem.new :autor => @cliente.nome, :texto => params[:mensagem], :chat_id => @chat.id, :data => Time.now
+      @mensagem.texto = params[:mensagem].gsub(/\n/, ' ')
       salvou = salvou and @mensagem.save
     else #offline
       # envia email ao departamento responsável
