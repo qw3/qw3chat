@@ -1,7 +1,15 @@
 <div class="chat">
 	<div class="esquerda">
-		<div class="cliente"><%= chat.chat_cliente.nome %></div>
+		<div class="cliente">
+				<%= chat.chat_cliente.nome %>
+		</div>
 		<div class="data"><%= chat.inicio.strftime "%d/%m/%Y %H:%M:%S" %></div>
+		<div class="cliente_email">
+			<%= chat.chat_cliente.email %>
+		</div>
+		<div class="cliente_telefone">
+			<%= chat.chat_cliente.telefone %>
+		</div>
 		<div class="mensagem"><%= chat.primeira_mensagem %></div>
 	</div>
 	<div class="direita">
