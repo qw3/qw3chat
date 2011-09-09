@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = %q{Administra atendimentos entre cliente e empresa.}
   
   s.add_dependency 'devise'
-  s.add_dependency 'will_paginate', '3.0.pre2'
+  s.add_dependency 'will_paginate'
 
   #s.rubyforge_project = "qw3chat"
 
