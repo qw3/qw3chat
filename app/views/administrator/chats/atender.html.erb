@@ -6,8 +6,8 @@
 
 	<div id="chat-wrap"><div id="chat-area"></div></div>
 
-	<% form_tag '/administrator/mensagens', :remote => true, :id => 'send-message-area' do %>
-	    <%= text_area 'mensagem', 'texto', :maxlength => 100 %>
+	<%= form_tag '/administrator/mensagens', :remote => true, :id => 'send-message-area' do %>
+	    <%= text_area 'mensagem', 'texto', :title => 'Digite aqui seu texto', :maxlength => 100, :class => 'titulo_clicavel' %>
 	<% end %>
 	
 	<div class="descricao-chat">

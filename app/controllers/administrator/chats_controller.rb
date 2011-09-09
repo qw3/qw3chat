@@ -146,7 +146,7 @@ class Administrator::ChatsController < Administrator::AdminController
     atualiza = (!Chat.where(:status => Chat::ESPERANDO).count.zero? and Chat.maximum('id') > @last_chat.to_i and @last_chat.to_i != 0) ? 1 : 0
     
     respond_to do |format|
-      format.html { render :json => {:atualiza => atualiza.to_s} }
+      format.html { render :json => {:atualiza => atualiza.to_s, :chat_id => Chat.maximum('id').to_s } }
     end
     
   end
