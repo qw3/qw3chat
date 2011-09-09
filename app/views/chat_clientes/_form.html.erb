@@ -10,33 +10,21 @@
 
   <div class="field">
 	<% nome_padrao = 'Nome' %>
-    <%= f.text_field :nome, :value => nome_padrao, 
-		:onclick => "if(this.value == '#{nome_padrao}') this.value=''",
-		:onfocus => "if(this.value == '#{nome_padrao}') this.value=''", 
-		:onblur => "if(this.value == '') this.value='#{nome_padrao}'" %>
+    <%= f.text_field :nome, :title => nome_padrao, :class => 'titulo_clicavel' %>
   </div>
   <div class="field">
 	<% email_padrao = 'E-mail' %>
-    <%= f.text_field :email, :value => email_padrao, 
-		:onclick => "if(this.value == '#{email_padrao}') this.value=''",
-		:onfocus => "if(this.value == '#{email_padrao}') this.value=''", 
-		:onblur => "if(this.value == '') this.value='#{email_padrao}'" %>
+    <%= f.text_field :email, :title => email_padrao, :class => 'titulo_clicavel' %>
   </div>
   <div class="field">
 	<% telefone_padrao = '(xx) xxxx-xxxx' %>
-    <%= f.text_field :telefone, :value => telefone_padrao, 
-		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 14, :size => 30,
-		:onclick => "if(this.value == '#{telefone_padrao}') this.value=''", 
-		:onfocus => "if(this.value == '#{telefone_padrao}') this.value=''", 
-		:onblur => "if(this.value == '') this.value='#{telefone_padrao}'"
-		 %>
+    <%= f.text_field :telefone, :title => telefone_padrao, :class => 'titulo_clicavel',
+		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 14, :size => 30
+	%>
   </div>
   <div class="field">
 	<% mensagem_padrao = 'Digite sua mensagem' %>
-    <%= text_area_tag :mensagem, mensagem_padrao,
-		:onclick => "if(this.value == '#{mensagem_padrao}') this.value=''",
-		:onfocus => "if(this.value == '#{mensagem_padrao}') this.value=''",  
-		:onblur => "if(this.value == '') this.value='#{mensagem_padrao}'", :size => "40x10" %>
+    <%= text_area_tag :mensagem, mensagem_padrao, :title => mensagem_padrao, :class => 'titulo_clicavel', :size => "40x10" %>
   </div>
   <div class="actions">
 	<% label_submit = (ChatSession.atendimento_online?) ? 'Iniciar conversa' : 'Enviar mensagem' %>
@@ -58,7 +46,7 @@
 	var vMensagem = new LiveValidation('mensagem', {onlyOnSubmit:true, validMessage:" "});
 	vMensagem.add( Validate.Presence, { failureMessage: "Por favor, preencha a mensagem" });
 	
-	var vTelefone = new LiveValidation('telefone', {onlyOnSubmit:true, validMessage:" "});
+	var vTelefone = new LiveValidation('chat_cliente_telefone', {onlyOnSubmit:true, validMessage:" "});
 	vTelefone.add( Validate.Presence, { failureMessage: "Por favor, digite seu telefone corretamente" });
 
 	<% if ChatDepartamento.count > 0 %>
