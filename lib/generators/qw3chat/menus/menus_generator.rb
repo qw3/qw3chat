@@ -9,13 +9,13 @@ module Qw3chat
         
         inject_into_class 'app/controllers/administrator/admin_controller.rb', Administrator::AdminController do
           "
-          def chat_menu_detalhes
-            @detalhes_parcial = 'chat'
-          end
-          
-          def config_menu_detalhes
-            @detalhes_parcial = 'chat_configuracao'
-          end
+  def chat_menu_detalhes
+    @detalhes_parcial = 'chat'
+  end
+  
+  def config_menu_detalhes
+    @detalhes_parcial = 'chat_configuracao'
+  end
           "  
         end
       end

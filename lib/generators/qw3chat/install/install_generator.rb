@@ -9,6 +9,7 @@ module Qw3chat
       include Rails::Generators::Migration
     
       source_root File.expand_path("../templates", __FILE__)
+      
       # Implement the required interface for Rails::Generators::Migration.
       # taken from http://github.com/rails/rails/blob/master/activerecord/lib/generators/active_record.rb
       def self.next_migration_number(dirname)
@@ -35,26 +36,31 @@ module Qw3chat
       end
       
       def create_initializer_files
+        # initializer não faz mal pra ninguem
         copy_file "initializers/configuracao_atendimento.rb", "config/initializers/configuracao_atendimento.rb"
       end
       
       def create_javascript_files
-        copy_file "public/javascripts/chat.client.close.js", "public/javascripts/qw3chat/chat.client.close.js"
-        copy_file "public/javascripts/chat.js", "public/javascripts/qw3chat/chat.js"
-        copy_file "public/javascripts/chat.notify.js", "public/javascripts/qw3chat/chat.notify.js"
-        copy_file "public/javascripts/chat.start.js", "public/javascripts/qw3chat/chat.start.js"
-        copy_file "public/javascripts/jquery.ui.datepicker-pt-BR.js", "public/javascripts/qw3chat/jquery.ui.datepicker-pt-BR.js"
-        copy_file "public/javascripts/livevalidation.js", "public/javascripts/qw3chat/livevalidation.js"
+        if yes? 'Gerar JS?'
+          copy_file "public/javascripts/chat.client.close.js", "public/javascripts/qw3chat/chat.client.close.js"
+          copy_file "public/javascripts/chat.js", "public/javascripts/qw3chat/chat.js"
+          copy_file "public/javascripts/chat.notify.js", "public/javascripts/qw3chat/chat.notify.js"
+          copy_file "public/javascripts/chat.start.js", "public/javascripts/qw3chat/chat.start.js"
+          copy_file "public/javascripts/jquery.ui.datepicker-pt-BR.js", "public/javascripts/qw3chat/jquery.ui.datepicker-pt-BR.js"
+          copy_file "public/javascripts/livevalidation.js", "public/javascripts/qw3chat/livevalidation.js"
+        end
       end
     
       def create_stylesheet_files
-        copy_file "public/stylesheets/application.css", "public/stylesheets/qw3chat/application.css"
-        copy_file "public/stylesheets/backend.css", "public/stylesheets/qw3chat/backend.css"
-        copy_file "public/stylesheets/chat.css", "public/stylesheets/qw3chat/chat.css"
-        copy_file "public/stylesheets/frontend.css", "public/stylesheets/qw3chat/frontend.css"
-        copy_file "public/stylesheets/login.css", "public/stylesheets/qw3chat/login.css"
-        copy_file "public/stylesheets/notice.css", "public/stylesheets/qw3chat/notice.css"
-        copy_file "public/stylesheets/template.css", "public/stylesheets/qw3chat/template.css"
+        if yes? 'Gerar CSS?'
+          copy_file "public/stylesheets/application.css", "public/stylesheets/qw3chat/application.css"
+          copy_file "public/stylesheets/backend.css", "public/stylesheets/qw3chat/backend.css"
+          copy_file "public/stylesheets/chat.css", "public/stylesheets/qw3chat/chat.css"
+          copy_file "public/stylesheets/frontend.css", "public/stylesheets/qw3chat/frontend.css"
+          copy_file "public/stylesheets/login.css", "public/stylesheets/qw3chat/login.css"
+          copy_file "public/stylesheets/notice.css", "public/stylesheets/qw3chat/notice.css"
+          copy_file "public/stylesheets/template.css", "public/stylesheets/qw3chat/template.css"
+        end
       end
       
       
@@ -63,11 +69,13 @@ module Qw3chat
       end
       
       def copy_layout_files
-        copy_file 'layouts/backend.html.erb', 'app/views/layouts/qw3chat/backend.html.erb'
-        copy_file 'layouts/backend-chat.html.erb', 'app/views/layouts/qw3chat/backend-chat.html.erb'
-        copy_file 'layouts/frontend.html.erb', 'app/views/layouts/qw3chat/frontend.html.erb'
-        copy_file 'layouts/frontend-chat.html.erb', 'app/views/layouts/qw3chat/frontend-chat.html.erb'
-        copy_file 'layouts/login.html.erb', 'app/views/layouts/qw3chat/login.html.erb'
+        if yes? 'Gerar layouts?'
+          copy_file 'layouts/backend.html.erb', 'app/views/layouts/qw3chat/backend.html.erb'
+          copy_file 'layouts/backend-chat.html.erb', 'app/views/layouts/qw3chat/backend-chat.html.erb'
+          copy_file 'layouts/frontend.html.erb', 'app/views/layouts/qw3chat/frontend.html.erb'
+          copy_file 'layouts/frontend-chat.html.erb', 'app/views/layouts/qw3chat/frontend-chat.html.erb'
+          copy_file 'layouts/login.html.erb', 'app/views/layouts/qw3chat/login.html.erb'
+        end
       end
       
       def copy_18n_files
