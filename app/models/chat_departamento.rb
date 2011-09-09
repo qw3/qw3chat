@@ -4,7 +4,4 @@ class ChatDepartamento < ActiveRecord::Base
   
   validates :nome, :alias, :presence => true
   
-  cattr_reader :per_page
-  @@per_page = 10
-  
 end

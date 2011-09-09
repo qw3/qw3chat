@@ -10,9 +10,6 @@ class Chat < ActiveRecord::Base
   
   default_scope :order => 'inicio DESC'
   
-  cattr_reader :per_page
-  @@per_page = 5
-  
   ESPERANDO       = 0
   EM_ATENDIMENTO  = 1
   FINALIZADO      = 2 
