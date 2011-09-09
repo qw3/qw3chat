@@ -1,5 +1,12 @@
 <li>
 	<%= link_to administrator_chats_path, :class => "chat-leftbar" do %>
-		<span>Atendimentos</span>
+		<span>Atendimento online</span>
 	<% end %>
 </li>
+<% if (@detalhes_parcial == 'qw3chat') %>
+	<li class="<%= (@detalhes_parcial == 'qw3chat') ? 'menu-item-aberto' : 'menu-item-fechado' %>">
+	  <ul class="menu submenu">
+	  	<%= render "/administrator/chats/menu_detalhes" %>
+	  </ul>
+	</li>
+<% end %>

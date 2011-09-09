@@ -3,3 +3,10 @@
 		<span>Configurações</span>
 	<% end %>
 </li>
+<% if (@detalhes_parcial == 'qw3chat_configuracao') %>
+	<li class="<%= (@detalhes_parcial == 'qw3chat_configuracao') ? 'menu-item-aberto' : 'menu-item-fechado' %>">
+	  <ul class="menu submenu">
+	  	<%= render "/administrator/configuracao_atendimento/menu_detalhes" %>
+	  </ul>
+	</li>
+<% end %>
