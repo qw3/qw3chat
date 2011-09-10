@@ -28,7 +28,10 @@ module Qw3chat
           migration_template 'migrations/chats.rb', 'db/migrate/create_chats.rb'
           migration_template 'migrations/mensagens.rb', 'db/migrate/create_mensagens.rb'
           migration_template 'migrations/sessions.rb', 'db/migrate/create_sessions.rb'
-          migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
+          
+          if yes? 'Gerar settings? Já tem no QW3Common.'
+            migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
+          end
           
           rake("db:create")
           rake("db:migrate")
