@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title><%= ConfiguracaoAtendimento.nome_empresa %> - Atendimento de cliente</title>
-	  <%= stylesheet_link_tag 'qw3chat/application','qw3chat/template', 'qw3chat/chat' %>
-	  <%= javascript_include_tag 'qw3chat/jquery', 'qw3chat/jquery-ui' %>
-		<script>
-			// Retira o conflito da jQuery
-			var $jq = jQuery.noConflict();
-		</script>
-	  <%= javascript_include_tag 'qw3chat/jquery.ajaxrailscorrection.js' %>
-	  <%= javascript_include_tag 'qw3chat/chat'%>
+	  <title><%= Settings.nome_empresa %> - Atendimento de cliente</title>
+	  <%= stylesheet_link_tag 'qw3/template', 'qw3chat/application', 'qw3chat/chat' %>
+	  <%= javascript_include_tag :defaults , 'qw3chat/chat', 'qw3chat/chat.client.close' %>
 	  <%= csrf_meta_tag %>	
 	</head>
 	

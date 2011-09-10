@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title><%= ConfiguracaoAtendimento.nome_empresa %></title>
-	  <%= stylesheet_link_tag 'qw3chat/login' %>
-	  <%= javascript_include_tag :defaults %>
-	  <%= javascript_include_tag 'qw3chat/notice' %>
+	  <title><%= Settings.nome_empresa %></title>
+	  <%= stylesheet_link_tag 'qw3/login', 'qw3/notice' %>
+	  <%= javascript_include_tag :defaults, 'qw3/notice', 'application' %>
 	  <%= csrf_meta_tag %>	
 	</head>
 	<body class="loginlayout">
 		
 		<% if !notice.nil? %>
-			<div id="notice">
+			<div class="notice">
 				<%= notice %>
 			</div>
 		<% end %>
 		
-  		<%= yield %>
+		<div class="login">
+	  		<%= yield %>
+		</div>
+	
 	</body>
 </html>

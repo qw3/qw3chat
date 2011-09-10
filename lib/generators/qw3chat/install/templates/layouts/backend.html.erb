@@ -1,60 +1,54 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title><%= ConfiguracaoAtendimento.nome_empresa %></title>
-	  <%= stylesheet_link_tag 'qw3chat/application', 'qw3chat/backend', 'qw3chat/menu', 'qw3chat/notice', 'qw3chat/template' %>
-	  <%= javascript_include_tag :defaults %>
-	  <%= javascript_include_tag 'qw3chat/cookiejar', 'qw3chat/scriptaculous', 'qw3chat/notice', 'qw3chat/chat.notify.js', 'qw3chat/paginate.js' %>
-		
-	  <%= csrf_meta_tag %>	
-	</head>
-	
-	
-	<body>
+  <head>
+    <title><%= Settings.nome_empresa %></title>
+    <%= stylesheet_link_tag 'qw3/template', 'qw3/template.backend', 'qw3/notice', 'qw3chat/application', 'qw3chat/backend' %>
+    <%= javascript_include_tag :defaults, 'qw3/checkbox', 'qw3/mascara', 'qw3/notice', 'qw3/titulo_clicavel', 'qw3/pagination', 'qw3chat/jquery.cookie' %>
+    
+    <% if ChatSession.sessao_aberta current_administrator_administrador.id %>
+    	<%= javascript_include_tag 'qw3chat/chat.webkit.notification', 'qw3chat/chat.notify' %>
+    <% end %>
+    
+    <%= csrf_meta_tag %>
 
-		<div id="header" style="background:<%= ConfiguracaoAtendimento.cor_topo %>">
-			<div id="logo" style="float:left">
-				<%= link_to image_tag(ConfiguracaoAtendimento.logo), '#', :target => '_self' %>
-			</div>
-			<div id="welcome">
-			  <%= render 'administrator/chat_sessions/usuario' %>
-			  <%= render 'administrator/chat_sessions/botao' %>
-			</div>
-		</div>
-		
-		<% if !notice.nil? %>
-			<div id="notice">
-				<%= notice %>
-			</div>
-		<% end %>
-		
-		<div id="leftbar">
-			<%= render 'template/leftbar' %>
-		</div>
-		
-		<div class="component">
-			<% if !@detalhes_partial.nil? %>
-			<div id="menu-detalhes">
-				<ul class="menu">
-					<%= render "#{@detalhes_partial}" %>
-				</ul>
-			</div>
-			<% end %>
-			
-			<%= yield %>
-		</div>
-		
-		<div id="chat-notificacao">
-			<div class="notificacao">
-				<h1>Novo atendimento</h1>
-				<div class="inside">
-					<div>Um novo cliente solicitou atendimento.</div>
-					<%= link_to administrator_chats_path(:status => Chat::ESPERANDO) do %>
-						<span>Ver os atendimentos</span>
-					<% end %>
-				</div>
+  </head>
+
+  <body>
+    <div id="header">
+      <div id="logo">
+        <%= link_to image_tag(Settings.logo), '/administrator', :target => '_self' %>
+      </div>
+      <div id="welcome">
+      	<%= render 'administrator/chat_sessions/botao' %>
+        <%= render 'administrator/chat_sessions/usuario' %>
+      </div>
+    </div>
+    
+    <% if !notice.nil? %>
+      <div id="notice">
+        <%= notice %>
+      </div>
+    <% end %>
+    
+    <div id="leftbar">
+      <%= render 'template/leftbar' %>
+    </div>
+    
+    <div id="contentbody">      
+      <%= yield %>
+    </div>
+    
+    <div id="chat-notificacao">
+		<div class="notificacao">
+			<h1>Novo atendimento</h1>
+			<div class="inside">
+				<div>Um novo cliente solicitou atendimento.</div>
+				<%= link_to administrator_chats_path(:status => Chat::ESPERANDO) do %>
+					<span>Ver os atendimentos</span>
+				<% end %>
 			</div>
 		</div>
-		
-	</body>
+	</div>
+    
+  </body>
 </html>

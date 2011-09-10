@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Administrator::SettingsController < Administrator::AdminController
+class Administrator::ConfiguracaoAtendimentoController < Administrator::AdminController
 
   before_filter :config_menu_detalhes
   

@@ -9,19 +9,19 @@
 		<div class="esquerda">
 			
 			<div class="field">
-				<%= label_tag :nome_empresa %>: <br />
-				<%= text_field_tag :nome_empresa, ConfiguracaoAtendimento.nome_empresa %>
+				<%= label_tag :nome_empresa %> 
+				<%= text_field_tag :nome_empresa, Settings.nome_empresa %>
 			</div>
 			
 			<div class="field">
-				<%= label_tag :cor_topo %>: <br />
-				<%= text_field_tag :cor_topo, ConfiguracaoAtendimento.cor_topo %>
+				<%= label_tag :cor_topo %> 
+				<%= text_field_tag :cor_topo, Settings.cor_topo %>
 			</div>
 			
 			<div class="field">
-				<%= label_tag :logo_upload, 'Logomarca' %>: <br />
+				<%= label_tag :logo_upload, 'Logomarca' %> 
 				<%= file_field_tag :logo_upload %>
-  				<%= image_tag ConfiguracaoAtendimento.logo, :width => "200", 
+  				<%= image_tag Settings.logo, :width => "200", 
 					:style => "border: 1px solid #888888; margin: 20px; display:block;" %>
 			</div>
 			
@@ -30,13 +30,13 @@
 		<div class="direita">
 			
 			<div class="field">
-				<%= label_tag :texto_online %>: <br />
-				<%= text_area_tag :texto_online, ConfiguracaoAtendimento.texto_online, {:size => "50x10"} %>
+				<%= label_tag :texto_online %> 
+				<%= text_area_tag :texto_online, Settings.texto_online, {:size => "50x10"} %>
 			</div>
 			
 			<div class="field">
-				<%= label_tag :texto_offline %>: <br />
-				<%= text_area_tag :texto_offline, ConfiguracaoAtendimento.texto_offline, {:size => "50x10"} %>
+				<%= label_tag :texto_offline %> 
+				<%= text_area_tag :texto_offline, Settings.texto_offline, {:size => "50x10"} %>
 			</div>
 			
 		</div>

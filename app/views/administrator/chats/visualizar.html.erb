@@ -5,7 +5,9 @@
 <div class="inside">
 	<%= render @chat %>
 	
-	<h1>Histórico de mensagens</h1>
+	<div class="page_header">
+		<h1>Histórico de mensagens</h1>
+	</div>
 	
 	<div class="historico-mensagens">
 		<%= historico_chat_formatado @chat.recuperar_historico %>

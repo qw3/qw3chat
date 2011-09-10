@@ -1,123 +1,9 @@
-body {
-	background: none repeat scroll 0 0 #F3F1EC !important;
-	height:100%;
-	font-family	Helvetica,Arial,FreeSans,sans-serif;
-	margin:0; padding:0;
+div#leftbar ul.menu li a.qw3chat-chat-leftbar {
+	background: url(../../images/menu-icons/qw3chat/chat.png) no-repeat scroll 10px padding-box transparent;
 }
 
-a {
-	text-decoration:none;
-}
-
-#background {
-	width: 100%;
-}
-
-#header {
-	height: 115px;
-	background: url(../../images/qw3chat/css/header_bg.png);
-}
-
-#leftbar {
-	width: 7%;
-	height: 100%;
-	float: left;
-	background: url(../../images/qw3chat/leftbar-bg.png);
-}
-
-ul.menu {
-	margin: 0;
-	padding: 0;
-}
-
-#leftbar ul.menu li a {
-	height: 95px;
-	display:block;
-	padding: 5px;
-}
-
-#leftbar ul.menu li:hover {	
-	background: #444;
-	opacity: 0.9;
-}
-
-#leftbar ul.menu li a span {
-	position:relative;
-	top:65px;
-	font-family: "Lucida Grande";
-	font-weight: normal;
-	font-size: 11px;
-	color: #e2e2e2;
-}
-
-#leftbar ul.menu li a.chat-leftbar {
-	background: url(../../images/qw3chat/atendimento/comments.png) no-repeat scroll center top transparent;
-}
-
-#leftbar ul.menu li a.configuracao-atendimento {
-	background: url(../../images/qw3chat/configuracoes/process.png) no-repeat scroll center top transparent;
-}
-
-#menu-detalhes {
-	height: 40px;
-	background: url(../../images/qw3chat/menu-detalhes-bg.png);
-}
-
-#menu-detalhes ul.menu  li {
-	display: inline-block;
-	padding: 10px 10px;
-}
-
-#menu-detalhes ul.menu  li a {
-	cursor:pointer;
-	color: #eee;
-	font-family: "Lucida Grande";
-	font-weight: normal;
-	font-size: 17px;
-}
-
-#menu-detalhes ul.menu  li:hover {
-	opacity: 0.9;
-	background: #444;
-}
-
-#menu-detalhes ul.menu  li a span {
-	margin-left:30px;
-}
-
-#menu-detalhes ul.menu  li a.em-espera {
-	background: url(../../images/qw3chat/atendimento/add.png) no-repeat scroll left top transparent;
-}
-
-#menu-detalhes ul.menu  li a.finalizados {
-	background: url(../../images/qw3chat/atendimento/delete.png) no-repeat scroll left top transparent;
-}
-
-#menu-detalhes ul.menu  li a.em-atendimento {
-	background: url(../../images/qw3chat/atendimento/accept.png) no-repeat scroll left top transparent;
-}
-
-#menu-detalhes ul.menu  li a.editar-conf {
-	background: url(../../images/qw3chat/configuracoes/editar-conf.png) no-repeat scroll left top transparent;
-}
-
-#menu-detalhes ul.menu  li a.departamentos {
-	background: url(../../images/qw3chat/atendimento/database.png) no-repeat scroll left top transparent;
-}
-
-#menu-detalhes ul.menu  li a.novo-departamento {
-	background: url(../../images/qw3chat/configuracoes/database_add.png) no-repeat scroll left top transparent;
-}
-
-div.component {
-	float:left;
-	min-height: 500px;
-	background-color: white;
-	width: 93%;
-}
-
-.clear {
-	clear:both;
+div#leftbar ul.menu li a.qw3chat-configuracao-atendimento-leftbar {
+	background: url(../../images/menu-icons/qw3chat/configuracao.png) no-repeat scroll 10px padding-box transparent;
 }
 
 a.cliente, a.encerrar {
@@ -149,27 +35,29 @@ div#welcome {
     float: right;
     margin: 10px;
     text-align: right;
-    width: 300px;
+    width: 700px;
 }
 
 
 div#welcome .welcome, div#welcome .logout {
 	display:inline;
 	margin-left: 5px;
-	text-border: 1px 2px 1px #000000;
-	-moz-text-border: 1px 2px 1px #000000;
-	-webkit-text-border: 1px 2px 1px #000000;
 }
 
 div.buttonmargin {
 	margin: 30px 0;
 }
 
+div#welcome div.ponto {
+	float:left;
+	width: 60%;
+}
+
 div.ponto input[type="submit"] {
 	border-radius: 5px 5px 5px 5px;
 	-moz-border-radius: 5px 5px 5px 5px;
 	-webkit-border-radius:5px 5px 5px 5px;
-	margin: 10px 0;
+	margin-top: 10px;
 	padding: 8px;
 	color: #fff;
 	background: #000;
@@ -206,6 +94,18 @@ div.chat div.cliente {
 	font-size: 18px;
 	float:left;
 	width: 70%;
+}
+
+div.chat div.cliente_email {
+	font-size: 14px;
+	float:left;
+	width: 70%;
+}
+
+div.chat div.cliente_telefone {
+	font-size: 14px;
+	float:left;
+	width: 30%;
 }
 
 div.chat div.data {
