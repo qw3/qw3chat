@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class ChatMensagensController < FrontendController
+class ChatMensagensController < ChatBaseController
 
   def atualiza_mensagens
     # verifica se o chat foi finalizado

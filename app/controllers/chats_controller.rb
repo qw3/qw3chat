@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class ChatsController < FrontendController
+class ChatsController < ChatBaseController
   
   skip_before_filter :frontend
 

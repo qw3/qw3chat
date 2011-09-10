@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class ChatClientesController < FrontendController
+class ChatClientesController < ChatBaseController
   
   def new
     
