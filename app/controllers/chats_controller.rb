@@ -2,7 +2,6 @@
 class ChatsController < FrontendController
   
   skip_before_filter :frontend
-  layout 'qw3chat/frontend-chat'
 
   # GET /chats/1
   # GET /chats/1.xml
