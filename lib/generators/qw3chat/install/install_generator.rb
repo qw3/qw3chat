@@ -46,8 +46,8 @@ module Qw3chat
           copy_file "public/javascripts/chat.js", "public/javascripts/qw3chat/chat.js"
           copy_file "public/javascripts/chat.notify.js", "public/javascripts/qw3chat/chat.notify.js"
           copy_file "public/javascripts/chat.start.js", "public/javascripts/qw3chat/chat.start.js"
-          copy_file "public/javascripts/jquery.ui.datepicker-pt-BR.js", "public/javascripts/qw3chat/jquery.ui.datepicker-pt-BR.js"
-          copy_file "public/javascripts/livevalidation.js", "public/javascripts/qw3chat/livevalidation.js"
+          copy_file "public/javascripts/chat.webkit.notification.js", "public/javascripts/qw3chat/chat.webkit.notification.js"
+          copy_file "public/javascripts/jquery.cookie.js", "public/javascripts/qw3chat/jquery.cookie.js"
         end
       end
     
@@ -57,9 +57,6 @@ module Qw3chat
           copy_file "public/stylesheets/backend.css", "public/stylesheets/qw3chat/backend.css"
           copy_file "public/stylesheets/chat.css", "public/stylesheets/qw3chat/chat.css"
           copy_file "public/stylesheets/frontend.css", "public/stylesheets/qw3chat/frontend.css"
-          copy_file "public/stylesheets/login.css", "public/stylesheets/qw3chat/login.css"
-          copy_file "public/stylesheets/notice.css", "public/stylesheets/qw3chat/notice.css"
-          copy_file "public/stylesheets/template.css", "public/stylesheets/qw3chat/template.css"
         end
       end
       
@@ -87,49 +84,55 @@ module Qw3chat
         
         if yes? 'Gerar rotas?'
            
-          route("namespace :administrator do
-      
-                resources :chats
-                controller :chats do
-                  get '/novas_notificacoes'       => 'chats#novas_notificacoes'
-                  get '/chats/:id/atender'        => 'chats#atender'
-                  get '/chats/:id/finalizar'      => 'chats#finalizar'
-                  get '/chats/:id/visualizar'     => 'chats#visualizar'
-                end
-      
-                resources :chat_departamentos
-      
-                resources :chat_sessions
-                controller :chat_sessions do
-                  post 'chat_sessions/iniciar'       => 'chat_sessions#iniciar'
-                  post 'chat_sessions/finalizar'     => 'chat_sessions#finalizar'
-                end
-      
-                controller :configuracao_atendimento do
-                  get 'configuracao_atendimento/editar'   => 'configuracao_atendimento#editar'
-                  post 'configuracao_atendimento/salvar'  => 'configuracao_atendimento#salvar'
-                end
-      
-                controller :chat_mensagens do
-                  post '/atualiza_mensagens'  => 'chat_mensagens#atualiza_mensagens'
-                  post '/nova-mensagem'       => 'chat_mensagens#create'
-                end
-      
-              end")
+          route("
+  # QW3Chat - Administrator
+  namespace :administrator do
+
+    resources :chats
+    controller :chats do
+      get '/novas_notificacoes'       => 'chats#novas_notificacoes'
+      get '/chats/:id/atender'        => 'chats#atender'
+      get '/chats/:id/finalizar'      => 'chats#finalizar'
+      get '/chats/:id/visualizar'     => 'chats#visualizar'
+    end
+
+    resources :chat_departamentos
+
+    resources :chat_sessions
+    controller :chat_sessions do
+      post 'chat_sessions/iniciar'       => 'chat_sessions#iniciar'
+      post 'chat_sessions/finalizar'     => 'chat_sessions#finalizar'
+    end
+
+    controller :configuracao_atendimento do
+      get 'configuracao_atendimento/editar'   => 'configuracao_atendimento#editar'
+      post 'configuracao_atendimento/salvar'  => 'configuracao_atendimento#salvar'
+    end
+
+    controller :chat_mensagens do
+      post '/atualiza_mensagens'  => 'chat_mensagens#atualiza_mensagens'
+      post '/nova-mensagem'       => 'chat_mensagens#create'
+    end
+
+  end
+          ")
         
-          route("resources :chats
-                  controller :chats do
-                    post 'fechar_chat'  => 'chats#fechar'
-                  end
+          route("
+  
+  # QW3Chat - Frontend - Parte do cliente
+  resources :chats
+  controller :chats do
+    post 'fechar_chat'  => 'chats#fechar'
+  end
+
+  resources :chat_clientes
+
+  controller :chat_mensagens do
+    post 'atualiza_mensagens' => 'chat_mensagens#atualiza_mensagens'
+    post 'mensagens'          => :create
+  end
       
-                resources :chat_clientes
-      
-                controller :chat_mensagens do
-                  post 'atualiza_mensagens' => 'chat_mensagens#atualiza_mensagens'
-                  post 'mensagens'          => :create
-                end
-      
-                root :to => 'chat_clientes#new'")
+                ")
         end
     
       end
