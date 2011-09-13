@@ -1,8 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Administrator::ChatsController < Administrator::AdminController
 
-  skip_before_filter :backend, :only => [:atender, :show]  
-  before_filter :chat_layout, :only => [:atender, :show]
   before_filter :chat_menu_detalhes
   
   # GET /chats
