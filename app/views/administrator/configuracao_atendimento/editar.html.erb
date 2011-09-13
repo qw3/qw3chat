@@ -10,18 +10,18 @@
 			
 			<div class="field">
 				<%= label_tag :nome_empresa %> 
-				<%= text_field_tag :nome_empresa, Settings.nome_empresa %>
+				<%= text_field_tag :nome_empresa, Settings['QW3CHAT.nome_empresa'] %>
 			</div>
 			
 			<div class="field">
 				<%= label_tag :cor_topo %> 
-				<%= text_field_tag :cor_topo, Settings.cor_topo %>
+				<%= text_field_tag :cor_topo, Settings['QW3CHAT.cor_topo'] %>
 			</div>
 			
 			<div class="field">
 				<%= label_tag :logo_upload, 'Logomarca' %> 
 				<%= file_field_tag :logo_upload %>
-  				<%= image_tag Settings.logo, :width => "200", 
+  				<%= image_tag Settings['QW3CHAT.logo'], :width => "200", 
 					:style => "border: 1px solid #888888; margin: 20px; display:block;" %>
 			</div>
 			
@@ -31,12 +31,12 @@
 			
 			<div class="field">
 				<%= label_tag :texto_online %> 
-				<%= text_area_tag :texto_online, Settings.texto_online, {:size => "50x10"} %>
+				<%= text_area_tag :texto_online, Settings['QW3CHAT.texto_online'], {:size => "50x10"} %>
 			</div>
 			
 			<div class="field">
 				<%= label_tag :texto_offline %> 
-				<%= text_area_tag :texto_offline, Settings.texto_offline, {:size => "50x10"} %>
+				<%= text_area_tag :texto_offline, Settings['QW3CHAT.texto_offline'], {:size => "50x10"} %>
 			</div>
 			
 		</div>
