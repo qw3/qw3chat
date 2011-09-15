@@ -41,6 +41,7 @@ module Qw3chat
       def create_initializer_files
         # initializer não faz mal pra ninguem
         copy_file "initializers/configuracao_atendimento.rb", "config/initializers/configuracao_atendimento.rb"
+        copy_file "initializers/inflections.rb", "config/initializers/qw3chat_inflections.rb"
       end
       
       def create_javascript_files
