@@ -8,4 +8,4 @@ module Qw3chat
     config.autoload_paths << File.expand_path("../app", __FILE__)
   end
   
-end 
+end
