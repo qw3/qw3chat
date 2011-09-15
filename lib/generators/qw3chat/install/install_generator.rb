@@ -23,11 +23,11 @@ module Qw3chat
       def create_migration_files
         
         if yes? 'Gerar migrations?'
-          migration_template 'migrations/clientes.rb', 'db/migrate/create_clientes.rb'
-          migration_template 'migrations/departamentos.rb', 'db/migrate/create_departamentos.rb'
+          migration_template 'migrations/clientes.rb', 'db/migrate/create_chat_clientes.rb'
+          migration_template 'migrations/departamentos.rb', 'db/migrate/create_chat_departamentos.rb'
           migration_template 'migrations/chats.rb', 'db/migrate/create_chats.rb'
-          migration_template 'migrations/mensagens.rb', 'db/migrate/create_mensagens.rb'
-          migration_template 'migrations/sessions.rb', 'db/migrate/create_sessions.rb'
+          migration_template 'migrations/mensagens.rb', 'db/migrate/create_chat_mensagens.rb'
+          migration_template 'migrations/sessions.rb', 'db/migrate/create_chat_sessions.rb'
           
           if yes? 'Gerar settings? Já tem no QW3Common.'
             migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
