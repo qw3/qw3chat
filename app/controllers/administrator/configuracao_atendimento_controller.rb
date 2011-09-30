@@ -4,6 +4,9 @@ class Administrator::ConfiguracaoAtendimentoController < Administrator::AdminCon
   before_filter :config_menu_detalhes
   
   def editar
+    respond_to do |format|
+      format.html
+    end
   end
 
   def salvar
