@@ -1,5 +1,5 @@
 <div class="logo">
-	<%= image_tag Settings.logo %>
+	<%= image_tag Settings['QW3CHAT.logo'] %>
 </div>
 
 <div class="page_header">
@@ -10,7 +10,7 @@
 	
 	<div class="topo">
 		<div class="texto-descritivo">
-			<%= (ChatSession.atendimento_online?) ? Settings.texto_online : Settings.texto_offline %>
+			<%= (ChatSession.atendimento_online?) ? Settings['QW3CHAT.texto_online'] : Settings['QW3CHAT.texto_offline'] %>
 		</div>
 	
 		<%= render '/administrator/chat_sessions/status' %>
