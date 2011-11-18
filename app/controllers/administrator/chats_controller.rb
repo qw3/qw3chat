@@ -140,8 +140,29 @@ class Administrator::ChatsController < Administrator::AdminController
   
   def novas_notificacoes
     
+    @usuario = ChatAtendente.find(current_administrator_administrador.id)
+    @chat_encaminhado = Chat.find( Chat.maximum('id') )
     @last_chat = params[:last_chat] || 0
-    atualiza = (!Chat.where(:status => Chat::ESPERANDO).count.zero? and Chat.maximum('id') > @last_chat.to_i and @last_chat.to_i != 0) ? 1 : 0
+    
+    # chat esperando maior que último notificado
+    deve_notificar = (@chat_encaminhado.esperando? and @chat_encaminhado.id > @last_chat.to_i and @last_chat.to_i != 0)
+     
+    # usuario trabalha em qualquer departamento ou
+    # chat independe de departamento ou
+    # chat é do departamento desse usuário
+    deve_notificar = deve_notificar and (@usuario.chat_departamento.nil? or @chat_encaminhado.chat_departamento.nil? or (@usuario.chat_departamento.id == @chat_encaminhado.chat_departamento.id)) 
+    
+    atualiza = deve_notificar ? 1 : 0
+    
+    logger.info '----------------11111111111---------------'
+    logger.info "Departamento Chat encaminhado: #{@chat_encaminhado.chat_departamento.id}"
+    logger.info "Departamento Usuario: #{@usuario.chat_departamento.id}"
+    logger.info ""
+    logger.info "Ultimo chat notificado: #{@last_chat}"
+    logger.info "Chat encaminhado: #{@chat_encaminhado.id}"
+    logger.info "Atualiza? #{atualiza}"
+    logger.info "Firefox" if browser.firefox?
+    logger.info "Chrome" unless browser.firefox?
     
     respond_to do |format|
       format.html { render :json => {:atualiza => atualiza.to_s, :chat_id => Chat.maximum('id').to_s } }
