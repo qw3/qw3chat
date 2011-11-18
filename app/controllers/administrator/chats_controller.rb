@@ -138,6 +138,8 @@ class Administrator::ChatsController < Administrator::AdminController
     
   end
   
+  # NAO MEXA NA NOTIFICACAO POR DEPARTAMENTO
+  # VAI PARAR DE FUNCIONAR - TE GARANTO
   def novas_notificacoes
     
     @usuario = ChatAtendente.find(current_administrator_administrador.id)
@@ -145,27 +147,44 @@ class Administrator::ChatsController < Administrator::AdminController
     @last_chat = params[:last_chat] || 0
     
     # chat esperando maior que último notificado
-    deve_notificar = (@chat_encaminhado.esperando? and @chat_encaminhado.id > @last_chat.to_i and @last_chat.to_i != 0)
+    deve_notificar1 = (@chat_encaminhado.esperando? and @chat_encaminhado.id > @last_chat.to_i and @last_chat.to_i != 0)
      
     # usuario trabalha em qualquer departamento ou
     # chat independe de departamento ou
     # chat é do departamento desse usuário
-    deve_notificar = deve_notificar and (@usuario.chat_departamento.nil? or @chat_encaminhado.chat_departamento.nil? or (@usuario.chat_departamento.id == @chat_encaminhado.chat_departamento.id)) 
+    deve_notificar2 = (@usuario.chat_departamento.nil? or @chat_encaminhado.chat_departamento.nil? or (@usuario.chat_departamento.id == @chat_encaminhado.chat_departamento.id))
+    deve_notificar = (deve_notificar1 and deve_notificar2) # ATENCAO: NAO MEXA NISSO!!!!
     
     atualiza = deve_notificar ? 1 : 0
     
-    logger.info '----------------11111111111---------------'
-    logger.info "Departamento Chat encaminhado: #{@chat_encaminhado.chat_departamento.id}"
-    logger.info "Departamento Usuario: #{@usuario.chat_departamento.id}"
-    logger.info ""
-    logger.info "Ultimo chat notificado: #{@last_chat}"
-    logger.info "Chat encaminhado: #{@chat_encaminhado.id}"
-    logger.info "Atualiza? #{atualiza}"
-    logger.info "Firefox" if browser.firefox?
-    logger.info "Chrome" unless browser.firefox?
+    # ! 5H DEBUGANDO, TOME CUIDADO !
+    # logger.info '----------------11111111111---------------'
+    # logger.info "Departamento Chat encaminhado: #{@chat_encaminhado.chat_departamento.id}"
+    # logger.info "Departamento Usuario: #{@usuario.chat_departamento.id}"
+    # logger.info ''
+#     
+    # logger.info "**** Deve notificar? #{deve_notificar} ****"
+    # logger.info "** Atualiza? #{atualiza} **"
+    # logger.info ''
+#     
+    # logger.info "Chat esperando? #{@chat_encaminhado.esperando?}"
+    # logger.info "Chat não foi notificado? #{@chat_encaminhado.id > @last_chat.to_i}"
+    # logger.info "Notificar1: #{deve_notificar1}"
+    # logger.info "Usuário tem departamento nulo: #{@usuario.chat_departamento.nil?}"
+    # logger.info "Chat tem departamento nulo: #{@chat_encaminhado.chat_departamento.nil?}"
+    # logger.info "Departamento Usuário = Departamento Chat: #{@usuario.chat_departamento.id == @chat_encaminhado.chat_departamento.id}"
+    # logger.info "Notificar2: #{deve_notificar2}"
+    # logger.info "Notificar1 and Notificar2: #{deve_notificar1 and deve_notificar2}"
+    # logger.info "(Notificar1 and Notificar2): #{(deve_notificar1 and deve_notificar2)}"
+#     
+    # logger.info ''
+    # logger.info "Chat encaminhado: #{@chat_encaminhado.id}"
+    # logger.info "Ultimo chat notificado: #{@last_chat}"
+    # logger.info "Firefox" if browser.firefox?
+    # logger.info "Chrome" unless browser.firefox?
     
     respond_to do |format|
-      format.html { render :json => {:atualiza => atualiza.to_s, :chat_id => Chat.maximum('id').to_s } }
+      format.html { render :json => {:atualiza => atualiza.to_s, :chat_id => @chat_encaminhado.id.to_s } }
     end
     
   end
