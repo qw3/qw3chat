@@ -28,6 +28,11 @@ module Qw3chat
           migration_template 'migrations/chats.rb', 'db/migrate/create_chats.rb'
           migration_template 'migrations/mensagens.rb', 'db/migrate/create_chat_mensagens.rb'
           migration_template 'migrations/sessions.rb', 'db/migrate/create_chat_sessions.rb'
+          migration_template 'migrations/atendente.rb', 'db/migrate/add_departamento_to_administrador.rb'
+          
+          unless yes? 'O usuário Administrador tem o atributo "type" (está preparado para herança)?'
+            migration_template 'migrations/add_type_to_administrador.rb', 'db/migrate/add_type_to_administrador.rb'
+          end
           
           if yes? 'Gerar settings? Já tem no QW3Common.'
             migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
@@ -100,6 +105,7 @@ module Qw3chat
       get '/chats/:id/visualizar'     => 'chats#visualizar'
     end
 
+    resources :chat_atendentes
     resources :chat_departamentos
 
     resources :chat_sessions

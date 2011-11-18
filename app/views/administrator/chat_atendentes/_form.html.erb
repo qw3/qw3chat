@@ -1,0 +1,54 @@
+<%= form_for([:administrator, @atendente]) do |f| %>
+  
+  <% if @atendente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atendente.errors.count, "erro") %></h2>
+
+      <ul>
+      <% @atendente.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% if @atendente.new_record? or can?( :manage, Administrador ) %>
+  <div class="esquerda">
+  <% end %>
+	  <div class="field">
+	    <%= f.label :nome %>
+	    <%= f.text_field :nome %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :email, "E-mail" %>
+	    <%= f.email_field :email %>
+	  </div>
+	  <div class="field">
+	  	<%= f.label :chat_departamento, "Departamento" %>
+	    <%= f.select :chat_departamento_id, ChatDepartamento.order('nome DESC').collect {|d| [ d.nome, d.id ] }, { :prompt => '-- Selecione --' } %>
+	  </div>
+  <% if @atendente.new_record? or can?( :manage, Administrador ) %>
+  </div>
+  <% end %>
+  
+  <% if @atendente.new_record? or can?( :manage, Administrador ) %>
+  <div class="direita">
+  	<p class="descricao">
+  		<b>OBS.:</b> Deixe em branco para não alterar.
+  	</p>
+    <div class="field">
+      <%= f.label :password, "Senha" %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <p><%= f.label :password_confirmation, "Confirmar senha" %>
+      <%= f.password_field :password_confirmation %></p>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit :class => 'button', :value => "Salvar" %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<table class="list">
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Departamento</th>
+    <% if can?( :manage, Administrador )%>
+      <th>Remover?</th>
+    <% end %>
+  </tr>
+
+<% @atendentes.each do |chat_atendente| %>
+  <tr>
+    <% if can?( :manage, Administrador )%>
+      <td width="5%"><%= link_to chat_atendente.id, edit_administrator_chat_atendente_path( chat_atendente ) %></td>
+      <td><%= link_to chat_atendente.nome, edit_administrator_chat_atendente_path( chat_atendente ) %></td>
+      <td><%= chat_atendente.email %></td>
+      <td><%= (chat_atendente.chat_departamento.nil?) ? 'Todos' : chat_atendente.chat_departamento.nome %></td>
+      <td class="remover" width="10%"><%= link_to 'Remover', administrator_chat_atendente_path( chat_atendente ), :method => :delete, :confirm => "Você tem certeza que deseja remover esse atendente ?" %></td>
+    <% else %>
+      <td width="5%"><%= chat_atendente.id %></td>
+      <td><%= chat_atendente.nome %></td>
+      <td><%= chat_atendente.email %></td>
+      <td><%= (chat_atendente.chat_departamento.nil?) ? 'Todos' : chat_atendente.chat_departamento.nome %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<%= pagination_footer @atendentes %>
