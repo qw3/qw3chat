@@ -25,7 +25,7 @@
 	  </div>
 	  <div class="field">
 	  	<%= f.label :chat_departamento, "Departamento" %>
-	    <%= f.select :chat_departamento_id, ChatDepartamento.order('nome DESC').collect {|d| [ d.nome, d.id ] }, { :prompt => '-- Selecione --' } %>
+	    <%= f.select :chat_departamento_id, ChatDepartamento.order('nome ASC').collect {|d| [ d.nome, d.id ] }, { :prompt => '-- Selecione --' } %>
 	  </div>
   <% if @atendente.new_record? or can?( :manage, Administrador ) %>
   </div>

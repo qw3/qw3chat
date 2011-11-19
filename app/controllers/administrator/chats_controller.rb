@@ -149,7 +149,7 @@ class Administrator::ChatsController < Administrator::AdminController
     @last_chat = params[:last_chat] || 0
     
     # chat esperando maior que último notificado
-    deve_notificar1 = (@chat_encaminhado.esperando? and @chat_encaminhado.id > @last_chat.to_i and @last_chat.to_i != 0)
+    deve_notificar1 = (@chat_encaminhado.esperando? and @chat_encaminhado.id > @last_chat.to_i)
      
     # usuario trabalha em qualquer departamento ou
     # chat independe de departamento ou
@@ -159,7 +159,7 @@ class Administrator::ChatsController < Administrator::AdminController
     
     atualiza = deve_notificar ? 1 : 0
     
-    # ! 5H DEBUGANDO, TOME CUIDADO !
+    # ! 5 HORAS DEBUGANDO, TOME CUIDADO !
     # logger.info '----------------11111111111---------------'
     # logger.info "Departamento Chat encaminhado: #{@chat_encaminhado.chat_departamento.id}"
     # logger.info "Departamento Usuario: #{@usuario.chat_departamento.id}"

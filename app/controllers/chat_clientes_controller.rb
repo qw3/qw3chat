@@ -15,7 +15,8 @@ class ChatClientesController < ChatBaseController
     salvou = @cliente.save
     
     departamento = ChatDepartamento.find_by_id params[:departamento_id]
-    if ChatSession.atendimento_online?(departamento) # online
+    @online = ChatSession.atendimento_online?(departamento)
+    if @online
       # inicia o chat
       @chat = Chat.new :chat_cliente => @cliente, :status => Chat::ESPERANDO, :inicio => Time.now, :departamento_id => params[:departamento_id]
       salvou = salvou and @chat.save
@@ -32,9 +33,9 @@ class ChatClientesController < ChatBaseController
     end
 
     respond_to do |format|
-      if ChatSession.atendimento_online? and salvou
+      if @online and salvou
         format.html { redirect_to(@chat) }
-      elsif !ChatSession.atendimento_online?
+      elsif !@online
         format.html { redirect_to(new_chat_cliente_path, :notice => "Obrigado. Sua mensagem foi enviada. Em breve, entraremos em contato.") }
       else
         format.html { render :action => "new" }
