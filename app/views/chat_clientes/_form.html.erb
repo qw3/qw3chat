@@ -4,8 +4,15 @@
 	  <div class="field">
 		<%= label_tag 'departamento_id', 'Departamento: ' %>
 	  	<%= select_tag "departamento_id", 
-	  			options_for_select(ChatDepartamento.all.to_a.sort { |a, b| a.nome <=> b.nome}.collect {|e| [ e.nome, e.id ] }) %>
+	  			options_for_select(ChatDepartamento.order('nome ASC').collect {|e| [ e.nome, e.id ] }),
+	  			{:prompt => '-- Selecione o departamento --'} %>
 	  </div>
+	  
+	  <script type="text/javascript">
+			var vDepartamento = new LiveValidation('departamento_id', {onlyOnBlur:true, validMessage:" "});
+			vDepartamento.add( Validate.Presence, { failureMessage: "Por favor, selecione o departamento que deseja contatar" } );
+	  </script>
+	  
   <% end %>
 
   <div class="field">
@@ -34,7 +41,7 @@
 <% end %>
 
 <script type="text/javascript">
-	
+
 	var vNome = new LiveValidation('chat_cliente_nome', {onlyOnBlur:true, validMessage:" "});
 	vNome.add( Validate.Presence, { failureMessage: "Por favor, digite seu nome" } );
 	vNome.add( Validate.Exclusion, { within: [ 'Nome' , 'nome', 'eu' ], failureMessage: "Por favor, digite seu nome correto" } );

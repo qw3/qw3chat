@@ -1,7 +1,7 @@
-<div class="status">
+<% if ChatDepartamento.count.zero? %>
 	<% if ChatSession.atendimento_online? %>
-		<div class="online"><span>online</span></div>
+		<%= render '/administrator/chat_sessions/status_online' %>
 	<% else %>
-		<div class="offline"><span>offline</span></div>
+		<%= render '/administrator/chat_sessions/status_offline' %>
 	<% end %>
-</div>
+<% end %>

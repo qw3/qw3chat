@@ -30,10 +30,6 @@ module Qw3chat
           migration_template 'migrations/sessions.rb', 'db/migrate/create_chat_sessions.rb'
           migration_template 'migrations/atendente.rb', 'db/migrate/add_departamento_to_administrador.rb'
           
-          unless yes? 'O usuário Administrador tem o atributo "type" (está preparado para herança)?'
-            migration_template 'migrations/add_type_to_administrador.rb', 'db/migrate/add_type_to_administrador.rb'
-          end
-          
           if yes? 'Gerar settings? Já tem no QW3Common.'
             migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
           end
@@ -41,6 +37,12 @@ module Qw3chat
           rake("db:create")
           rake("db:migrate")
         end
+        
+        unless yes? 'O usuário Administrador tem o atributo "type" (está preparado para herança)?'
+            migration_template 'migrations/add_type_to_administrador.rb', 'db/migrate/add_type_to_administrador.rb'
+            rake("db:migrate")
+        end
+        
       end
       
       def create_initializer_files
@@ -55,6 +57,7 @@ module Qw3chat
           copy_file "public/javascripts/chat.js", "public/javascripts/qw3chat/chat.js"
           copy_file "public/javascripts/chat.notify.js", "public/javascripts/qw3chat/chat.notify.js"
           copy_file "public/javascripts/chat.start.js", "public/javascripts/qw3chat/chat.start.js"
+          copy_file "public/javascripts/chat.status.js", "public/javascripts/qw3chat/chat.status.js"
           copy_file "public/javascripts/chat.webkit.notification.js", "public/javascripts/qw3chat/chat.webkit.notification.js"
           copy_file "public/javascripts/jquery.cookie.js", "public/javascripts/qw3chat/jquery.cookie.js"
         end
@@ -136,6 +139,7 @@ module Qw3chat
   end
 
   resources :chat_clientes
+  match '/chat_sessions/verificar_status' => 'chat_sessions#verificar_status'
 
   controller :chat_mensagens do
     post 'atualiza_mensagens' => 'chat_mensagens#atualiza_mensagens'

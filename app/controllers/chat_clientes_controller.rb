@@ -2,7 +2,6 @@
 class ChatClientesController < ChatBaseController
   
   def new
-    
     if params[:finalizado] == "1"
       redirect_to '/', :notice => 'Este atendimento foi finalizado pelo atendente.'
     end
@@ -15,7 +14,8 @@ class ChatClientesController < ChatBaseController
     @cliente = ChatCliente.new(params[:chat_cliente])
     salvou = @cliente.save
     
-    if ChatSession.atendimento_online? # online
+    departamento = ChatDepartamento.find_by_id params[:departamento_id]
+    if ChatSession.atendimento_online?(departamento) # online
       # inicia o chat
       @chat = Chat.new :chat_cliente => @cliente, :status => Chat::ESPERANDO, :inicio => Time.now, :departamento_id => params[:departamento_id]
       salvou = salvou and @chat.save

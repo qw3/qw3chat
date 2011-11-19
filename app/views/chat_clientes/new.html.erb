@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'qw3chat/chat.status.js' %>
+
 <div class="logo">
 	<%= image_tag Settings['QW3CHAT.logo'] %>
 </div>
@@ -13,7 +15,9 @@
 			<%= (ChatSession.atendimento_online?) ? Settings['QW3CHAT.texto_online'] : Settings['QW3CHAT.texto_offline'] %>
 		</div>
 	
-		<%= render '/administrator/chat_sessions/status' %>
+		<div id="chat_status">
+			<%= render '/administrator/chat_sessions/status' %>
+		</div>
 		<div class="clear"></div>
 	</div>
 	

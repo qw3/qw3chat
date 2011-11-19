@@ -1,0 +1,5 @@
+<% if @online %>
+	$("#chat_status").html("<%= escape_javascript( render :partial => "/administrator/chat_sessions/status_online" )%>"); 
+<% else %>
+	$("#chat_status").html("<%= escape_javascript( render :partial => "/administrator/chat_sessions/status_offline" )%>");
+<% end %>
