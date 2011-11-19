@@ -11,7 +11,7 @@
     <td><%= link_to chat_departamento.nome, edit_administrator_chat_departamento_path(chat_departamento) %></td>
 	<td><%= chat_departamento.email %></td>
     <td><%= chat_departamento.alias %></td>
-    <td align="center"><%= link_to image_tag('atendimento/delete.png'), [:administrator,chat_departamento], :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td align="center"><%= link_to image_tag('icons/delete.png'), [:administrator,chat_departamento], :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

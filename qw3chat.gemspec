@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
   s.description = %q{Administra atendimentos entre cliente e empresa.}
   
   s.add_dependency 'devise'
+  s.add_dependency 'cancan'
+  s.add_dependency 'brstring'
   
   #s.rubyforge_project = "qw3chat"
 

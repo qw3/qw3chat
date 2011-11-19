@@ -60,7 +60,7 @@ class Administrator::ChatAtendentesController < Administrator::AdminController
     
     respond_to do |format|
       if salvou
-        format.html { redirect_to(administrator_chat_atendentes_path, :notice => 'Atendente atualizada com sucesso.') }
+        format.html { redirect_to(administrator_chat_atendentes_path, :notice => 'Atendente atualizado com sucesso.') }
       else
         format.html { render :action => "edit" }
       end
@@ -74,7 +74,7 @@ class Administrator::ChatAtendentesController < Administrator::AdminController
     @atendente.destroy
 
     respond_to do |format|
-      format.html { redirect_to(administrator_chat_atendentes_path, :notice => "Atendente removida com sucesso!") }
+      format.html { redirect_to(administrator_chat_atendentes_path, :notice => "Atendente removido com sucesso!") }
       format.xml  { head :ok }
     end
   end
