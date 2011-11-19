@@ -18,6 +18,10 @@
 			<span>
 				<%= chat.status_to_s %>
 			</span>
+			<% unless chat.chat_departamento.nil? %>
+				Interesse:
+				<span><%= chat.chat_departamento.nome %></span>
+			<% end %>
 		</div>
 		<ul class="botoes">
 			<li class="atender">
