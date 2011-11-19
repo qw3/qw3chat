@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChatAtendente < Administrador
   
   belongs_to :chat_departamento

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTypeToAdministrador < ActiveRecord::Migration
   def self.up
     add_column :administradores, :type, :string, :default => 'Administrador'
