@@ -29,7 +29,7 @@ class ChatClientesController < ChatBaseController
       salvou = salvou and @mensagem.save
     else #offline
       # envia email ao departamento responsável
-      AtendimentoOffline.mensagem( ChatDepartamento.find_by_id(params[:departamento_id]), @cliente, params[:mensagem] ).deliver
+      AtendimentoOffline.mensagem( departamento, @cliente, params[:mensagem] ).deliver
     end
 
     respond_to do |format|
