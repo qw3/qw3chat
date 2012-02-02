@@ -16,8 +16,40 @@
 	<% end %>
 </li>
 
-<li>
-  <%= link_to '/administrator/chat_atendentes' do %>
-    <span>Atendentes</span>
+<% if can? :manage, :chat %>
+	
+	<li>
+	  <%= link_to '/administrator/configuracao_atendimento/editar' do %>
+	    <span>Configurações</span>
+	  <% end %>
+	</li>
+	
+	<%= if can? :manage, ChatAtendente %>
+	  <li>
+	    <%= link_to '/administrator/chat_atendentes' do %>
+	      <span>Atendentes</span>
+	    <% end %>
+	  </li>
+	
+	  <li>
+	    <%= link_to '/administrator/chat_atendentes/new' do %>
+	      <span>Adicionar atendente</span>
+	    <% end %>
+	  </li>
+	<% end %>
+	
+	<%= if can? :manage, ChatDepartamentos %>
+	  <li>
+	    <%= link_to '/administrator/chat_departamentos' do %>
+	      <span>Departamentos</span>
+	    <% end %>
+	  </li>
+	
+	  <li>
+	    <%= link_to '/administrator/chat_departamentos/new' do %>
+	      <span>Adicionar departamento</span>
+	    <% end %>
+	  </li>
   <% end %>
-</li>
+
+<% end %>
