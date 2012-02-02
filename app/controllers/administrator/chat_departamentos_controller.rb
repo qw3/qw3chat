@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Administrator::ChatDepartamentosController < Administrator::AdminController
   
-  before_filter :config_menu_detalhes
+  before_filter :chat_menu_detalhes
   
   # GET /chat_departamentos
   # GET /chat_departamentos.xml

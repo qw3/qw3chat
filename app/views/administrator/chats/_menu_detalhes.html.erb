@@ -24,7 +24,7 @@
 	  <% end %>
 	</li>
 	
-	<%= if can? :manage, ChatAtendente %>
+	<% if can? :manage, ChatAtendente %>
 	  <li>
 	    <%= link_to '/administrator/chat_atendentes' do %>
 	      <span>Atendentes</span>
@@ -32,13 +32,13 @@
 	  </li>
 	
 	  <li>
-	    <%= link_to '/administrator/chat_atendentes/new' do %>
+	    <%= link_to '/administrator/chat_atendentes/new', :class => 'adicionar-leftbar' do %>
 	      <span>Adicionar atendente</span>
 	    <% end %>
 	  </li>
 	<% end %>
 	
-	<%= if can? :manage, ChatDepartamentos %>
+	<% if can? :manage, ChatDepartamento %>
 	  <li>
 	    <%= link_to '/administrator/chat_departamentos' do %>
 	      <span>Departamentos</span>
@@ -46,7 +46,7 @@
 	  </li>
 	
 	  <li>
-	    <%= link_to '/administrator/chat_departamentos/new' do %>
+	    <%= link_to '/administrator/chat_departamentos/new', :class => 'adicionar-leftbar' do %>
 	      <span>Adicionar departamento</span>
 	    <% end %>
 	  </li>
