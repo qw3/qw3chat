@@ -1,3 +1,11 @@
+<% if Rails.application.config.assets.enabled %>
+	<%= javascript_include_tag 'templates/qw3chat/lib/chat.start.js' %>
+	<%= javascript_include_tag 'templates/qw3chat/lib/chat.client.close.js' %>
+<% else %>
+	<%= javascript_include_tag 'qw3chat/chat.start.js' %>
+	<%= javascript_include_tag 'qw3chat/chat.client.close.js' %>
+<% end %>
+
 <div class="page_header">
 	<h1>Atendimento online</h1>
 </div>
@@ -19,6 +27,3 @@
 <input type="hidden" id="chat_id" value="<%= @chat.id %>" />
 <input type="hidden" id="client" value="1" />
 <input type="hidden" id="token" value="1" />
-
-<%= javascript_include_tag 'qw3chat/chat.start.js' %>
-<%= javascript_include_tag 'qw3chat/chat.client.close.js' %>

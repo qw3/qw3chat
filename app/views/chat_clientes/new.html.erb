@@ -1,7 +1,11 @@
-<%= javascript_include_tag 'qw3chat/chat.status.js' %>
+<% if Rails.application.config.assets.enabled %>
+	<%= javascript_include_tag 'templates/qw3chat/lib/chat.status.js' %>
+<% else %>
+	<%= javascript_include_tag 'qw3chat/chat.status.js' %>
+<% end %>
 
 <div class="logo">
-	<%= image_tag Settings['QW3CHAT.logo'] %>
+	<%= image_tag '/images/' + Settings['QW3CHAT.logo'] %>
 </div>
 
 <div class="page_header">
