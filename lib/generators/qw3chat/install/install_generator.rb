@@ -24,16 +24,24 @@ module Qw3chat
         
         if yes? 'Gerar migrations?'
           migration_template 'migrations/clientes.rb', 'db/migrate/create_chat_clientes.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           migration_template 'migrations/departamentos.rb', 'db/migrate/create_chat_departamentos.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           migration_template 'migrations/chats.rb', 'db/migrate/create_chats.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           migration_template 'migrations/mensagens.rb', 'db/migrate/create_chat_mensagens.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           migration_template 'migrations/sessions.rb', 'db/migrate/create_chat_sessions.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           migration_template 'migrations/atendente.rb', 'db/migrate/add_departamento_to_administrador.rb'
+          sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           
           if yes? 'Gerar settings? Já tem no QW3Common.'
             migration_template 'migrations/settings.rb', 'db/migrate/create_settings.rb'
+            sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
           end
           
+          if yes?( "Executar rake db:migrate?" )
           rake("db:create")
           rake("db:migrate")
         end
@@ -46,6 +54,7 @@ module Qw3chat
       end
       
       def create_initializer_files
+        if yes?( "Copiar initializers?" )
         # initializer não faz mal pra ninguem
         copy_file "initializers/configuracao_atendimento.rb", "config/initializers/configuracao_atendimento.rb"
         copy_file "initializers/inflections.rb", "config/initializers/qw3chat_inflections.rb"
@@ -74,7 +83,9 @@ module Qw3chat
       
       
       def copy_image_files
-        FileUtils.cp_r File.expand_path("../templates/public/images", __FILE__), "public/images/qw3chat"
+        if yes?( "Copiar arquivos?" )
+          FileUtils.cp_r File.expand_path("../templates/public/images", __FILE__), "public/images/qw3chat"
+        end
       end
       
       def copy_layout_files
@@ -88,8 +99,10 @@ module Qw3chat
       end
       
       def copy_18n_files
-        copy_file 'locales/qw3chat.en.yml', 'config/locales/qw3chat.en.yml'
-        copy_file 'locales/qw3chat.pt-BR.yml', 'config/locales/qw3chat.pt-BR.yml'
+        if yes?( "Copiar arquivos de linguagem?" )
+          copy_file 'locales/qw3chat.en.yml', 'config/locales/qw3chat.en.yml'
+          copy_file 'locales/qw3chat.pt-BR.yml', 'config/locales/qw3chat.pt-BR.yml'
+        end
       end
       
       def create_routes
