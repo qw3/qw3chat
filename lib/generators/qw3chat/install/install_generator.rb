@@ -14,7 +14,7 @@ module Qw3chat
       # taken from http://github.com/rails/rails/blob/master/activerecord/lib/generators/active_record.rb
       def self.next_migration_number(dirname)
         if ActiveRecord::Base.timestamped_migrations
-          Time.now.utc.strftime("%Y%m%d%H%M%S").to_s + rand(1230).to_s
+          Time.now.utc.strftime("%Y%m%d%H%M%S").to_s
         else
           "%.3d" % (current_migration_number(dirname) + 1)
         end
@@ -42,12 +42,14 @@ module Qw3chat
           end
           
           if yes?( "Executar rake db:migrate?" )
-          rake("db:create")
-          rake("db:migrate")
+            rake("db:create")
+            rake("db:migrate")
+          end
         end
         
         unless yes? 'O usuário Administrador tem o atributo "type" (está preparado para herança)?'
             migration_template 'migrations/add_type_to_administrador.rb', 'db/migrate/add_type_to_administrador.rb'
+            sleep( 1.0 ) # Espera 1 segundo para que o timestamp da proxima migration seja diferente
             rake("db:migrate")
         end
         
