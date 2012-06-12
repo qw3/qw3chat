@@ -38,16 +38,6 @@
       <%= yield %>
     </div>
     
-    <div id="chat-notificacao">
-		<div class="notificacao">
-			<h1>Novo atendimento</h1>
-			<div class="inside">
-				<div>Um novo cliente solicitou atendimento.</div>
-				<%= link_to administrator_chats_path(:status => Chat::ESPERANDO) do %>
-					<span>Ver os atendimentos</span>
-				<% end %>
-			</div>
-		</div>
 	</div>
     
   </body>

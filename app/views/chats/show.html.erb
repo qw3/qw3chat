@@ -1,7 +1,4 @@
-<% if Rails.application.config.assets.enabled %>
-	<%= javascript_include_tag 'templates/qw3chat/lib/chat.start.js' %>
-	<%= javascript_include_tag 'templates/qw3chat/lib/chat.client.close.js' %>
-<% else %>
+<% unless Rails.application.config.assets.enabled %>
 	<%= javascript_include_tag 'qw3chat/chat.start.js' %>
 	<%= javascript_include_tag 'qw3chat/chat.client.close.js' %>
 <% end %>

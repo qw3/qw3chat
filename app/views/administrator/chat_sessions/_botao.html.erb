@@ -1,4 +1,4 @@
-<% if current_administrator_administrador.is_a? ChatAtendente %>
+<% if current_administrator_administrador.permissao? :atendente %>
 	<div class="ponto">
 		<% if !ChatSession.sessao_aberta current_administrator_administrador.id %>
 			<% sessao_aberta = 0 %>

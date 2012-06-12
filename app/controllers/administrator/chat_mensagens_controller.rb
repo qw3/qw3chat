@@ -6,7 +6,7 @@ class Administrator::ChatMensagensController < Administrator::AdminController
     # verifica se o chat foi finalizado
     @chat = Chat.find params[:chat_id]
     if @chat.finalizado?
-      @resposta = {"finalizado" => 1, "cliente" => 1}
+      @resposta = {"finalizado" => 1, "cliente" => 0}
     else
       @resposta = ChatMensagem.where( "chat_id = #{params[:chat_id]} AND id > #{params[:last_id]}")
     end
