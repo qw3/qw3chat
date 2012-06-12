@@ -37,7 +37,7 @@ class Administrator::ConfiguracaoAtendimentoController < Administrator::AdminCon
         FileUtils.mkdir_p(caminho) if( !File.directory?(caminho) ) # cria o diretório se não existe
         nome_arquivo = rand(9).to_s + rand(9).to_s + rand(9).to_s + arquivo.original_filename
         File.open(File.join(caminho, nome_arquivo), "wb") { |f| f.write(arquivo.read) }
-        Settings['QW3CHAT.logo'] = 'configuracoes/logo/' + nome_arquivo
+        Settings['QW3CHAT.logo'] = '/images/configuracoes/logo/' + nome_arquivo
       end
     end
 
