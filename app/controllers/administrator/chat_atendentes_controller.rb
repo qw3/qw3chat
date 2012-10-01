@@ -6,7 +6,11 @@ class Administrator::ChatAtendentesController < Administrator::AdminController
   # GET /filiais
   # GET /filiais.xml
   def index
-    @atendentes = ChatAtendente.paginate :page => params[:page]
+    conditions = []
+    conditions << "nome LIKE '%#{params[:nome]}%'" unless params[:nome].blank?
+    conditions << "email LIKE '%#{params[:email]}%'" unless params[:email].blank?
+    
+    @atendentes = ChatAtendente.paginate :page => params[:page], :conditions => conditions.join(' AND '), :order => 'nome ASC'
 
     respond_to do |format|
       format.html # index.html.erb
