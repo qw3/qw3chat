@@ -24,9 +24,9 @@
     <%= f.text_field :email, :title => email_padrao, :class => 'titulo_clicavel' %>
   </div>
   <div class="field">
-	<% telefone_padrao = '(xx) xxxx-xxxx' %>
+	<% telefone_padrao = 'Telefone' %>
     <%= f.text_field :telefone, :title => telefone_padrao, :class => 'titulo_clicavel',
-		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 14, :size => 30
+		:onkeypress => "mascara(this, checaTelefone)", :maxlength => 15, :size => 30
 	%>
   </div>
   <div class="field">
