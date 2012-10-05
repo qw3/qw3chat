@@ -25,7 +25,7 @@
 		</div>
 		<ul class="botoes">
 			<li class="atender">
-				<% if true #chat.esperando? %>
+				<% if chat.esperando? %>
 					<%= link_to "#", :chat_id => chat.id do %>
 						<span>Atender</span>
 					<% end %>
