@@ -62,7 +62,7 @@ class Chat < ActiveRecord::Base
       self.finalizar
     end
     
-    file = File.open(chat_path, "rb")
+    file = File.open(chat_path, "r")
     historico = file.read
     return historico
   end
