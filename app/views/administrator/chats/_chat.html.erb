@@ -25,8 +25,8 @@
 		</div>
 		<ul class="botoes">
 			<li class="atender">
-				<% if chat.esperando? %>
-					<%= link_to "/administrator/chats/#{chat.id}/atender", :target => '_blank' do %>
+				<% if true #chat.esperando? %>
+					<%= link_to "#", :chat_id => chat.id do %>
 						<span>Atender</span>
 					<% end %>
 				<% end %>

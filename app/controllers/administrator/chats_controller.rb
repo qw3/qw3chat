@@ -206,4 +206,14 @@ class Administrator::ChatsController < Administrator::AdminController
     
   end
   
+  
+  def esta_disponivel
+    @chat = Chat.find params[:id]
+    resposta = (@chat.esperando?) ? 1 : 0
+    
+    respond_to do |format|
+      format.html {render :json => resposta}
+    end
+  end
+  
 end

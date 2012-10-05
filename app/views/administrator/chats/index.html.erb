@@ -1,3 +1,30 @@
+<%= javascript_tag do %>
+
+$(function() {
+	if($('.chats li.atender a').length > 0) {
+		$('.chats li.atender a').live('click', function() {
+			var chat_id = $(this).attr('chat_id');
+			$.ajax({
+				url: '/administrator/chats/' + chat_id + '/esta_disponivel',
+				type: 'get',
+				success: function(resposta) {
+					if(parseInt(resposta) == 1) { // disponível
+		                window.open('/administrator/chats/' + chat_id + '/atender', '_blank');
+						window.focus();
+					}
+					else {
+						alert('Este atendimento está em andamento ou finalizado.');					
+					}
+					return false;
+				}
+			});
+			return false;
+		});
+	}
+});
+
+<% end %>
+
 <div class="page_header">
 	<h1><%= nome_chat_index params[:status] %></h1>
 </div>

@@ -122,6 +122,7 @@ module Qw3chat
       get '/chats/:id/atender'        => 'chats#atender'
       get '/chats/:id/finalizar'      => 'chats#finalizar'
       get '/chats/:id/visualizar'     => 'chats#visualizar'
+      get '/chats/:id/esta_disponivel' => 'chats#esta_disponivel'
     end
 
     resources :chat_atendentes
