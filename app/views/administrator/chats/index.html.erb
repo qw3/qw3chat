@@ -1,7 +1,7 @@
 <%= javascript_tag do %>
 
 $(function() {
-	if($('.chats li.atender a').length > 0) {
+
 		$('.chats li.atender a').live('click', function() {
 			var chat_id = $(this).attr('chat_id');
 			$.ajax({
@@ -20,7 +20,7 @@ $(function() {
 			});
 			return false;
 		});
-	}
+
 });
 
 <% end %>
