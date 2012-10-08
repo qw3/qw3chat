@@ -15,7 +15,9 @@ class Administrator::ChatsController < Administrator::AdminController
     conditions = []
     conditions << "status = #{params[:status]}" unless params[:status].nil?
     conditions << "departamento_id = #{current_administrator_administrador.chat_departamento.id}" unless !current_administrator_administrador.is_a? ChatAtendente or current_administrator_administrador.chat_departamento.nil?
-    conditions << "atendente_id = #{current_administrator_administrador.id}" if current_administrator_administrador.is_a? ChatAtendente
+    if params[:status] != '0'
+      conditions << "atendente_id = #{current_administrator_administrador.id}" if current_administrator_administrador.is_a? ChatAtendente
+    end
     @chats = Chat.paginate :page => params[:page], :conditions => conditions.join(' AND ')
 
     respond_to do |format|
