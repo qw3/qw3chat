@@ -23,6 +23,7 @@ class ChatClientesController < ChatBaseController
       if salvou
         session[:chat_id] = @chat.id
       end
+      
       # salva a primeira mensagem
       @mensagem = ChatMensagem.new :autor => @cliente.nome, :texto => params[:mensagem], :chat_id => @chat.id, :data => Time.now
       @mensagem.texto = params[:mensagem].gsub(/\n/, ' ')
