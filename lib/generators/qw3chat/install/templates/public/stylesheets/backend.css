@@ -6,10 +6,6 @@ div#leftbar ul.menu li a.qw3chat-configuracao-atendimento-leftbar {
 	background: url(../../images/menu-icons/qw3chat/configuracao.png) no-repeat scroll 10px padding-box transparent;
 }
 
-#leftbar .adicionar-leftbar, #leftbar .add-leftbar {
-  background:url("../../images/icons/add.png") no-repeat scroll 10px padding-box transparent;
-}
-
 a.cliente, a.encerrar {
 	padding: 5px;
 	font-size: 10pt;
